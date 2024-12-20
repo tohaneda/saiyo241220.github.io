@@ -1,0 +1,14 @@
+.header,
+reward-title,
+.primary-button {
+    background-color: #2b7335;
+}
+
+.reward-title {
+    background: linear-gradient(90deg, 
+        rgba(255,255,255,1) 0%, 
+        rgba(43,115,53,1) 5%,    /* #2b7335 */
+        rgba(43,115,53,1) 95%,   /* #2b7335 */
+        rgba(255,255,255,1) 100%
+    );
+}

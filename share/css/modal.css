@@ -1,0 +1,140 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 999;
+    display: none;
+}
+
+.modal {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 400px;
+    width: 100%;
+    height: 80vh;
+    display: none;
+    z-index: 1000;
+    border-radius: 20px 20px 0 0;
+
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    padding: 20px;
+    border-radius: 20px 20px 0 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    animation: slideUp 0.3s ease-out;
+    overflow-y: auto;
+}
+
+.modal.full-width {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    left: 50%;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    padding: 12px 20px;
+    position: relative;
+}
+
+.modal .close {
+    position: absolute;
+    left: 20px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #666;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 0 0 16px 0;
+    font-weight: normal;
+}
+
+.share-options {
+    padding-top: 20px;
+}
+
+.share-option {
+    margin-bottom: 8px;
+    padding: 8px 0;
+}
+
+.share-option input[type="radio"] {
+    display: none;
+}
+
+.share-option input[type="radio"]:checked + label {
+    background-color: transparent;
+}
+
+.share-option label {
+    display: block;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.share-option h4 {
+    font-size: 1.5rem;
+    margin: 0 0 8px 0;
+    font-weight: bold;
+}
+
+.share-option p {
+    font-size: 1rem;
+    margin: 0 0 8px 0;
+    color: #333;
+    line-height: 1.4;
+}
+
+.link-button {
+    display: block;
+    color: #007AFF;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 4px 0;
+}
+
+.link-button:hover {
+    opacity: 0.7;
+}
+
+.qr-content{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.qr-content img{
+    width: 100%;
+    max-width: 300px;
+}
+
+#shareModal .modal-content {
+    padding-bottom: 100px;
+}

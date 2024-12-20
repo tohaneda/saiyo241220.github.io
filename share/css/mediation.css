@@ -1,0 +1,24 @@
+.header,
+reward-title,
+.primary-button {
+    background-color: #b84c65;
+}
+
+div.reward-amount {
+    font-size: 1rem;
+    color: black;
+}
+
+.reward-amount {
+    padding:0;
+    padding-left: 20px;
+}
+
+.reward-title {
+    background: linear-gradient(90deg, 
+        rgba(255,255,255,1) 0%, 
+        rgba(184,76,101,1) 5%,    /* #b84c65 */
+        rgba(184,76,101,1) 95%,   /* #b84c65 */
+        rgba(255,255,255,1) 100%
+    );
+}
