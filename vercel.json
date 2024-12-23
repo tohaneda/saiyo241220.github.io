@@ -1,0 +1,7 @@
+{
+    "routes": [
+      { "handle": "filesystem" },
+      { "src": "/faq/(.*)", "dest": "/faq/$1" },
+      { "src": "/share/(.*)", "dest": "/share/$1" }
+    ]
+  }
