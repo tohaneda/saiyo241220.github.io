@@ -64,7 +64,8 @@ function initializeShareLinks(modal) {
             
             const type = link.dataset.type;
             let shareData = {
-                title: document.title,
+                title: '',
+//                title: document.title,
             };
 
             const url = getUrlWithParams(CONFIG.BASE_URL);
