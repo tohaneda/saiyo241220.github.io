@@ -293,6 +293,7 @@ function confirmForm(appType) {
     }
 
     // 希望勤務地のバリデーション
+    /*
     if (document.getElementById("location_body").value === '' || document.getElementById("location2_body").value === '') {
         document.getElementById("location_bottom").hidden = false;
         document.getElementById("location_bottom").innerHTML = "※希望勤務地を入力してください";
@@ -301,7 +302,7 @@ function confirmForm(appType) {
     } else {
         document.getElementById("location_bottom").hidden = true;
     }
-
+    */
     // 承諾確認のバリデーション
     let consentElements = document.querySelectorAll("#consent_input input[type='radio']");
 
@@ -364,7 +365,7 @@ function displayConfirmationValues() {
             } else {
                 value = document.getElementById(`${field}_body`).value;
                 if (field === 'name') value += ' 様';
-                if (field === 'age') value += ' 才';
+/*                if (field === 'age') value += ' 才';*/
             }
             display.innerHTML = value || '未入力';
         }
