@@ -184,7 +184,7 @@ function setParams(params) {
 
     // 直接応募か代理応募の判定
     if (params.appType === '1') {
-        formTitle.innerHTML = '代理応募';
+        formTitle.innerHTML = '代理応募フォーム';
     } else {
         formTitle.innerHTML = '応募フォーム';
     }
