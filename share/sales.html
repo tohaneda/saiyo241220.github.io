@@ -1,132 +1,121 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <!-- faviconエラー対策 -->
-    <link rel="icon" href="data:,">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>社員紹介特典</title>
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/sales.css">
-    <link rel="stylesheet" href="css/modal.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
+<!-- faviconエラー対策 -->
+<link rel="icon" href="data:,">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>社員紹介特典</title>
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/modal.css">
+<link rel="stylesheet" href="css/sales.css">
 </head>
 <body>
-    <div class="header">
-        <h1>営業部<br>ご紹介特典</h1>
+<nav id="head_nav"><a class="back" href="javascript:void(0)"><i class="fa-solid fa-angle-left"></i></a></nav>
+<header>
+  <h1>営業部<hr><b>ご紹介特典</b></h1>
+</header>
+<div class="container">
+  <div class="amount">
+    <div class="reward-subtitle">おひとり入社につき</div>
+    <div class="reward-title">奨励金</div>
+    <div class="reward"><img src="image/100000.png" alt="100,000"></div>
+    <p class="description">※ご紹介いただいた方が入社後6ヶ月以内に退職された場合、<br>
+      奨励金の支払対象外となります。</p>
+    <div class="btns_bg">
+      <ul>
+        <li><a href="#" class="link" id="linkButton">紹介ページを見る<i class="arrow"></i></a></li>
+        <li><a href="" class="question"><img src="image/arrow_icon.png" alt="＞">よくある質問</a></li>
+        <li>
+          <button class="button primary-button" id="shareButton" data-modal-target="shareModal">紹介する<i class="arrow"></i></button>
+        </li>
+        <li>
+          <button class="button secondary-button" id="proxyButton">代理で応募する<i class="arrow"></i></button>
+        </li>
+        <li>
+          <button class="button secondary-button qr-button" id="qrButton" data-modal-target="qrModal">QRコード<i class="arrow"></i></button>
+        </li>
+      </ul>
     </div>
-    <div class="container">
-        <div class="description">
-            お知り合いの方が審査後へ入社された場合、<br>
-            ご紹介者へ謝礼金をお支払いします
+  </div>
+</div>
+
+<!-- モーダルの構造を変更 -->
+<div class="modal-overlay" id="shareModalOverlay">
+  <div id="shareModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header"> <span class="close"> <i class="fas fa-times"></i> </span> </div>
+      <h3>紹介する</h3>
+      <div class="share-options"> 
+        <!-- オプション1 -->
+        <div class="share-option">
+          <input type="radio" id="option1" name="shareOption" value="friend" checked>
+          <label for="option1">
+          <h4>親しい方に送る</h4>
+          <p class="share-message">私が働いている会社で社員を募集しているんだけど興味ない？<br>
+            営業の仕事なんだけど、先輩もサポートしてくれるし、<br>
+            風通しも良いからすごく働きやすいよ。<br>
+            興味があれば相談に乗るから、いつでも連絡ください！</p>
+          <a href="#" class="link-button" data-type="friend">この紹介文で紹介する</a>
+          </label>
         </div>
-
-        <div class="amount">
-            <div class="reward-title">奨励金</div>
-            <div class="reward-subtitle">おひとり入社につき</div>            
-            <span class="reward-amount">100,000</span><span class="reward-unit">円</span>
+        
+        <!-- オプション2 -->
+        <div class="share-option">
+          <input type="radio" id="option2" name="shareOption" value="acquaintance">
+          <label for="option2">
+          <h4>知り合いの方に送る</h4>
+          <p class="share-message">現在、東建コーポレーションでは社員を募集しています。<br>
+            高収入やキャリアアップの実現と、充実したワークライフバランスの両立を一緒に目指してみませんか？<br>
+            営業部は、実際の仕事内容を入社前に体験できる制度があるため、安心してご応募いただけます。<br>
+            ご興味をいただけたら、お気軽にご相談ください。</p>
+          <a href="#" class="link-button" data-type="acquaintance">この紹介文で紹介する</a>
+          </label>
         </div>
-
-        <div class="description">
-            ご紹介いただいた方が入社後6ヶ月以内に<br>
-            退職された場合、謝礼金の支払対象外となります
+        
+        <!-- オプション3 -->
+        <div class="share-option">
+          <input type="radio" id="option3" name="shareOption" value="stranger">
+          <label for="option3">
+          <h4>面識が少ない方に送る</h4>
+          <p class="share-message">現在、東建コーポレーションでは営業部で働く社員を募集しています。<br>
+            高収入やキャリアアップの実現と、充実したワークライフバランスの両立が目指せる魅力的な会社です。<br>
+            入社前に体験入社の制度を設けているため、安心してご応募いただけます。<br>
+            ご興味をいただけたら、お気軽にご相談ください。</p>
+          <a href="#" class="link-button" data-type="stranger">この紹介文で紹介する</a>
+          </label>
         </div>
-
-        <a href="#" class="link" id="linkButton">社員採用ページへ</a>
-
-        <button class="button primary-button" id="shareButton" data-modal-target="shareModal">紹介する</button>
-        <button class="button secondary-button" id="proxyButton">代理で応募する</button>
-        <button class="button secondary-button qr-button" id="qrButton" data-modal-target="qrModal">
-            <i class="fas fa-qrcode"></i>
-            QRコード
-        </button>
+        
+        <!-- オプション4 -->
+        <div class="share-option">
+          <input type="radio" id="option4" name="shareOption" value="linkOnly">
+          <label for="option4">
+          <h4>リンクだけ送る</h4>
+          <p class="share-message"></p>
+          <a href="#" class="link-button" data-type="linkOnly">紹介文をつけずに紹介する</a>
+          </label>
+        </div>
+      </div>
     </div>
-
-    <!-- モーダルの構造を変更 -->
-    <div class="modal-overlay" id="shareModalOverlay">
-        <div id="shareModal" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span class="close">
-                        <i class="fas fa-times"></i>
-                    </span>
-                </div>
-                <h3>紹介する</h3>
-                
-                <div class="share-options">
-                    <!-- オプション1 -->
-                    <div class="share-option">
-                        <input type="radio" id="option1" name="shareOption" value="friend" checked>
-                        <label for="option1">
-                            <h4>親しい方に送る</h4>
-                            <p class="share-message">私が働いている会社で社員を募集しているんだけど興味ない？<br>
-                            営業の仕事なんだけど、先輩もサポートしてくれるし、<br>
-                            風通しも良いからすごく働きやすいよ。<br>
-                            興味があれば相談に乗るから、いつでも連絡ください！</p>
-                            <a href="#" class="link-button" data-type="friend">この紹介文で紹介する</a>
-                        </label>
-                    </div>
-
-                    <!-- オプション2 -->
-                    <div class="share-option">
-                        <input type="radio" id="option2" name="shareOption" value="acquaintance">
-                        <label for="option2">
-                            <h4>知り合いの方に送る</h4>
-                            <p class="share-message">現在、東建コーポレーションでは社員を募集しています。<br>
-                            高収入やキャリアアップの実現と、充実したワークライフバランスの両立を一緒に目指してみませんか？<br>
-                            営業部は、実際の仕事内容を入社前に体験できる制度があるため、安心してご応募いただけます。<br>
-                            ご興味をいただけたら、お気軽にご相談ください。</p>
-                            <a href="#" class="link-button" data-type="acquaintance">この紹介文で紹介する</a>
-                        </label>
-                    </div>
-
-                    <!-- オプション3 -->
-                    <div class="share-option">
-                        <input type="radio" id="option3" name="shareOption" value="stranger">
-                        <label for="option3">
-                            <h4>面識が少ない方に送る</h4>
-                            <p class="share-message">現在、東建コーポレーションでは営業部で働く社員を募集しています。<br>
-                            高収入やキャリアアップの実現と、充実したワークライフバランスの両立が目指せる魅力的な会社です。<br>
-                            入社前に体験入社の制度を設けているため、安心してご応募いただけます。<br>
-                            ご興味をいただけたら、お気軽にご相談ください。</p>
-                            <a href="#" class="link-button" data-type="stranger">この紹介文で紹介する</a>
-                        </label>
-                    </div>
-
-                    <!-- オプション4 -->
-                    <div class="share-option">
-                        <input type="radio" id="option4" name="shareOption" value="linkOnly">
-                        <label for="option4">
-                            <h4>リンクだけ送る</h4>
-                            <p class="share-message"></p>
-                            <a href="#" class="link-button" data-type="linkOnly">紹介文をつけずに紹介する</a>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
+  </div>
+</div>
+<div class="modal-overlay" id="qrModalOverlay">
+  <div id="qrModal" class="modal">
+    <div class="modal-content"> <span class="close"> <i class="fas fa-times"></i> </span>
+      <h3>社員紹介用QRコード</h3>
+      <div class="qr-content"> <img id="qrImage" src="" alt="QRコード"> </div>
     </div>
+  </div>
+</div>
 
-    <div class="modal-overlay" id="qrModalOverlay">
-        <div id="qrModal" class="modal">
-            <div class="modal-content">
-                <span class="close">
-                    <i class="fas fa-times"></i>
-                </span>
-                <h3>社員紹介用QRコード</h3>
-                <div class="qr-content">
-                    <img id="qrImage" src="" alt="QRコード">
-                </div>
-            </div>
-        </div>
-    </div>
+<!-- 共通設定 --> 
+<script src="js/config.js"></script> 
+<script src="js/common.js"></script> 
 
-    <!-- 共通設定 -->
-    <script src="js/config.js"></script>
-    <script src="js/common.js"></script>
-    
-    <!-- 機能別のスクリプト -->
-    <script src="js/link.js"></script>
+<!-- 機能別のスクリプト --> 
+<script src="js/link.js"></script>
 </body>
 </html>

@@ -1,78 +1,245 @@
-body{
-    margin: 0;
+body,
+button,
+input,
+select,
+textarea {
+  font-family: "Hiragino Kaku Gothic ProN", Meiryo, YuGothic, sans-serif;
 }
 
+body {
+  margin: 0;
+	font-size: 3.72vw;
+}
+
+#head_nav {
+  max-width: 860px;
+  margin: 0 auto;
+}
+#head_nav .back {
+	display: block;
+	width: 1.5em;
+	padding: 0.15em 0 0;
+	font-size: 5.58vw;
+	line-height: 1.35;
+	text-align: center;
+}
+header {
+  max-width: 860px;
+	height: 51.1vw;
+  padding: 15vw 0 0;
+  margin: 0 auto;
+  margin-bottom: 2em;
+  text-align: center;
+  background: url(../image/mv.jpg) 0 0 / 100% auto no-repeat;
+	box-sizing: border-box;
+}
+header h1 {
+  color: #fff;
+  margin: 0;
+  padding: 0;
+	font-size: 5.12vw;
+	font-weight: 600;
+	letter-spacing: 0.1em;
+}
+header h1 hr {
+	display: block;
+	width: 2em;
+	height: 2px;
+	margin: 0.5em auto;
+	border: none;
+	background: #fff;
+}
+header h1 b {
+	font-size: 7.44vw;
+}
 .container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
- 
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
 }
-
-.header {
-    max-width: 400px;
-
-    color: white;
-    padding: 15px;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    text-align: center;
+.reward-subtitle {
+	font-size: 3.49vw;
 }
-
-.header h1 {
-    margin: 0;
-    padding: 0;
-}
-
-.amount {
-    margin: 20px 0;   
-}
-
-.reward-amount {
-    font-size: 2rem;
-    color: red;
-}
-
-.reward-unit {
-    font-size: 1rem;
-    color: red;
-}
-
 .reward-title {
-    padding: 5px 0;
-    margin-bottom: 20px;
-    font-size: 1rem;
-    color: white;
+	width: 4em;
+  padding: 0.3em 0;
+	margin: 0.5em auto 1.5em;
+	background: #ab9446;
+  color: #fff;
+	font-size: 3.72vw;
+	letter-spacing: 0.1em;
+	line-height: 1.3;
 }
-
+.reward-amount {
+  font-size: 2rem;
+  color: red;
+}
+.reward-unit {
+  font-size: 1rem;
+  color: red;
+}
+.reward {
+	width: 78%;
+	padding: 0 0 0.75em;
+	margin: 0 auto 1em;
+	text-align: center;
+}
+.reward img {
+	width: 82%;
+}
 .description {
-    margin: 15px 0;
-    font-size: 1rem;
+	margin: 0 2.5em;
+	padding-left: 1em;
+  font-size: 3.02vw;
+	text-align: left;
+	text-indent: -1em;
+	line-height: 1.4;
 }
-
+.btns_bg {
+	margin: 2em 0 0;
+	padding: 2em 2.4em;
+}
+.btns_bg ul li:nth-child(2),
+.btns_bg ul li:nth-child(3) {
+	margin: 1.6em 0 0;
+}
+.btns_bg ul li:nth-child(4),
+.btns_bg ul li:nth-child(5),
+.btns_bg ul li:nth-child(6) {
+	margin: 1em 0 0;
+}
 .link {
-    color: #0066cc;
-    text-decoration: none;
-    margin: 15px 0;
-    display: block;
+	position: relative;
+	width: 62%;
+	padding: 0.7em 1.2em 0.7em 0;
+	margin: 0 auto;
+  color: #fff;
+  display: block;
+	border: 1px solid #fff;
+	border-radius: 3em;
 }
-
+.link .arrow {
+  position: absolute;
+	top: 1vw;
+	right: 0.8em;
+	bottom: 0;
+  display: block;
+  width: 5vw;
+  height: 1px;
+  margin: auto 0;
+  border-radius: 9999px;
+  background-color: #fff;
+}
+.link .arrow::before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 1px);
+  right: 0;
+  width: 2vw;
+  height: 1px;
+  border-radius: 9999px;
+  background-color: #fff;
+  transform: rotate(35deg);
+  transform-origin: calc(100% - 1px) 50%;
+}
+.question {
+	font-size: 3.95vw;
+	color: #fff;
+}
+.question img {
+	position: relative;
+	top: 0.1em;
+	display: inline-block;
+	width: 1.3em;
+	margin-right: 0.5em;
+}
 .button {
-    width: 100%;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.2rem;
+	position: relative;
+  width: 100%;
+  padding: 0.8em;
+  cursor: pointer;
+	font-size: 4.19vw;
+	background: #fff;
+}
+.button .arrow {
+  position: absolute;
+	top: 1vw;
+	right: 0.8em;
+	bottom: 0;
+  display: block;
+  width: 5vw;
+  height: 1px;
+  margin: auto 0;
+  border-radius: 9999px;
+}
+.button .arrow::before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 1px);
+  right: 0;
+  width: 2vw;
+  height: 1px;
+  border-radius: 9999px;
+  transform: rotate(35deg);
+  transform-origin: calc(100% - 1px) 50%;
 }
 
-.primary-button {
-    border: none;
-    color: white;
+@media screen and (max-width: 860px) {
+  .none_sp {
+    display: none;
+  }
 }
 
-.secondary-button {
-    background: white;
-    border: 1px solid #ccc;
+@media screen and (min-width: 861px) {
+  .none_pc {
+    display: none;
+  }
+	
+	body {
+		font-size: 32px;
+	}
+	#head_nav .back {
+		font-size: 48px;
+	}
+	header {
+		height: 440px;
+		padding: 129px 0 0;
+	}
+	header h1 {
+		font-size: 44px;
+	}
+	header h1 b {
+		font-size: 64px;
+	}
+	.reward-subtitle {
+		font-size: 30px;
+	}
+	.reward-title {
+		font-size: 32px;
+	}
+	.description {
+		font-size: 26px;
+	}
+	.link:hover {
+		background: rgba(255,255,255,0.25);
+	}
+	.question:hover,
+	.button:hover {
+		opacity: 0.8;
+	}
+	.link .arrow,
+	.button .arrow {
+		top: 8.6px;
+		width: 43px;
+	}
+	.link .arrow::before,
+	.button .arrow::before {
+		width: 17.2px;
+	}
+	.question {
+		font-size: 34px;
+	}
+	.button {
+		font-size: 36px;
+	}
 }

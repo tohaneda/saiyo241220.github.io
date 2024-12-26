@@ -1,14 +1,20 @@
-.header,
-reward-title,
-.primary-button {
-    background-color: #2b7335;
+.reward {
+	background: url(../image/kenchiku_l.png) 0 100% / 12.5vw auto no-repeat, url(../image/kenchiku_r.png) 100% 100% / 12.5vw auto no-repeat;
 }
-
-.reward-title {
-    background: linear-gradient(90deg, 
-        rgba(255,255,255,1) 0%, 
-        rgba(43,115,53,1) 5%,    /* #2b7335 */
-        rgba(43,115,53,1) 95%,   /* #2b7335 */
-        rgba(255,255,255,1) 100%
-    );
+.btns_bg {
+	background: linear-gradient(135deg, #1adf43 -5%, #086924 50%, #003917 100%);
+}
+.button {
+	color: #004e31;
+}
+.button .arrow {
+  background-color: #004e31;
+}
+.button .arrow::before {
+  background-color: #004e31;
+}
+@media screen and (min-width: 861px) {
+	.reward {
+		background: url(../image/kenchiku_l.png) 0 100% / 107.5px auto no-repeat, url(../image/kenchiku_r.png) 100% 100% / 107.5px auto no-repeat;
+	}
 }

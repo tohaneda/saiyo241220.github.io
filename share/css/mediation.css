@@ -1,24 +1,41 @@
-.header,
-reward-title,
-.primary-button {
-    background-color: #b84c65;
+.reward {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 68%;
+	padding: 0;
 }
-
-div.reward-amount {
-    font-size: 1rem;
-    color: black;
+.reward dt {
+	width: 4em;
+	padding: 0.7em 0 0;
+	color: #5d0715;
+	font-size: 3.49vw;
+	font-weight: 400;
 }
-
-.reward-amount {
-    padding:0;
-    padding-left: 20px;
+.reward dd {
+	width: calc(100% - 4.2em);
+	background: url(../image/chukai_l.png) 0 100% / 9vw auto no-repeat, url(../image/chukai_r.png) 100% 100% / 9vw auto no-repeat;
 }
-
-.reward-title {
-    background: linear-gradient(90deg, 
-        rgba(255,255,255,1) 0%, 
-        rgba(184,76,101,1) 5%,    /* #b84c65 */
-        rgba(184,76,101,1) 95%,   /* #b84c65 */
-        rgba(255,255,255,1) 100%
-    );
+.reward dd img {
+	width: 78%;
+}
+.btns_bg {
+	background: linear-gradient(135deg, #ff53ff -5%, #7a153f 50%, #5d0715 100%);
+}
+.button {
+	color: #5d0715;
+}
+.button .arrow {
+  background-color: #5d0715;
+}
+.button .arrow::before {
+  background-color: #5d0715;
+}
+@media screen and (min-width: 861px) {
+	.reward dt {
+		font-size: 30px;
+	}
+	.reward dd {
+		background: url(../image/chukai_l.png) 0 100% / 78px auto no-repeat, url(../image/chukai_r.png) 100% 100% / 78px auto no-repeat;
+	}
 }

@@ -1,132 +1,125 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <!-- faviconエラー対策 -->
-    <link rel="icon" href="data:,">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>社員紹介特典</title>
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/mediation.css">
-    <link rel="stylesheet" href="css/modal.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
+<!-- faviconエラー対策 -->
+<link rel="icon" href="data:,">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>社員紹介特典</title>
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/modal.css">
+<link rel="stylesheet" href="css/mediation.css">
 </head>
 <body>
-    <div class="header">
-        <h1>仲介・管理部<br>ご紹介特典</h1>
+<header>
+  <h1>仲介・管理部<hr><b>ご紹介特典</b></h1>
+</header>
+<div class="container">
+  <div class="amount">
+    <div class="reward-subtitle">おひとり入社につき</div>
+    <div class="reward-title">奨励金</div>
+		<dl class="reward">
+			<dt>正社員で入社</dt>
+			<dd><img src="image/50000.png" alt="50,000"></dd>
+		</dl>
+		<dl class="reward">
+			<dt>パートで入社</dt>
+			<dd><img src="image/30000.png" alt="30,000"></dd>
+		</dl>
+    <p class="description">※ご紹介いただいた方が入社後6ヶ月以内に退職された場合、<br>奨励金の支払対象外となります。</p>
+    <div class="btns_bg">
+      <ul>
+        <li><a href="#" class="link" id="linkButton">紹介ページを見る<i class="arrow"></i></a></li>
+        <li><a href="" class="question"><img src="image/arrow_icon.png" alt="＞">よくある質問</a></li>
+        <li>
+          <button class="button primary-button" id="shareButton" data-modal-target="shareModal">紹介する<i class="arrow"></i></button>
+        </li>
+        <li>
+          <button class="button secondary-button" id="proxyButton">代理で応募する<i class="arrow"></i></button>
+        </li>
+        <li>
+          <button class="button secondary-button qr-button" id="qrButton" data-modal-target="qrModal">QRコード<i class="arrow"></i></button>
+        </li>
+      </ul>
     </div>
-    <div class="container">
-        <div class="description">
-            お知り合いの方が審査後へ入社された場合、<br>
-            ご紹介者へ謝礼金をお支払いします
+  </div>
+</div>
+
+<!-- モーダルの構造を変更 -->
+<div class="modal-overlay" id="shareModalOverlay">
+  <div id="shareModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header"> <span class="close"> <i class="fas fa-times"></i> </span> </div>
+      <h3>紹介する</h3>
+      <div class="share-options"> 
+        <!-- オプション1 -->
+        <div class="share-option">
+          <input type="radio" id="option1" name="shareOption" value="friend" checked>
+          <label for="option1">
+          <h4>親しい方に送る</h4>
+          <p class="share-message">いま働いている会社で社員を募集しているんだけど興味ない？<br>
+            アパートの入居仲介をする仕事か、建物を管理する仕事なんだけど、周りの先輩がサポートしてくれるし、職場の風通しも良いからすごく働きやすいよ。<br>
+            興味があれば相談に乗るから、いつでも連絡ください！</p>
+          <a href="#" class="link-button" data-type="friend">この紹介文で紹介する</a>
+          </label>
         </div>
-
-        <div class="amount">
-            <div class="reward-title">奨励金</div>
-            <div class="reward-subtitle">おひとり入社につき</div>            
-            <div class="reward-amount">正社員で入社<span class="reward-amount">50,000</span><span class="reward-unit">円</span></div>
-            <div class="reward-amount">パートで入社<span class="reward-amount">30,000</span><span class="reward-unit">円</span></div>
+        
+        <!-- オプション2 -->
+        <div class="share-option">
+          <input type="radio" id="option2" name="shareOption" value="acquaintance">
+          <label for="option2">
+          <h4>知り合いの方に送る</h4>
+          <p class="share-message">現在、東建コーポレーションでは仲介部、管理部で働く社員を募集しています<br>
+            プライム上場企業で活躍し、キャリアアップを目指してみませんか？<br>
+            職場の先輩社員によるサポート体制が整っているため、実務経験が浅い方でも安心です。<br>
+            ご興味をいただけたら、お気軽にご相談ください。</p>
+          <a href="#" class="link-button" data-type="acquaintance">この紹介文で紹介する</a>
+          </label>
         </div>
-
-        <div class="description">
-            ご紹介いただいた方が入社後6ヶ月以内に<br>
-            退職された場合、謝礼金の支払対象外となります
+        
+        <!-- オプション3 -->
+        <div class="share-option">
+          <input type="radio" id="option3" name="shareOption" value="stranger">
+          <label for="option3">
+          <h4>面識が少ない方に送る</h4>
+          <p class="share-message">現在、東建コーポレーションでは仲介部、管理部で働く社員を募集しています。<br>
+            プライム上場企業で活躍しながら、キャリアアップを目指してみませんか？<br>
+            経験豊富な先輩社員による充実したサポート体制のもと、安心して働いていただけます。<br>
+            ご興味をいただけたら、お気軽にご相談ください。</p>
+          <a href="#" class="link-button" data-type="stranger">この紹介文で紹介する</a>
+          </label>
         </div>
-
-        <a href="#" class="link" id="linkButton">社員採用ページへ</a>
-
-        <button class="button primary-button" id="shareButton" data-modal-target="shareModal">紹介する</button>
-        <button class="button secondary-button" id="proxyButton">代理で応募する</button>
-        <button class="button secondary-button qr-button" id="qrButton" data-modal-target="qrModal">
-            <i class="fas fa-qrcode"></i>
-            QRコード
-        </button>
+        
+        <!-- オプション4 -->
+        <div class="share-option">
+          <input type="radio" id="option4" name="shareOption" value="linkOnly">
+          <label for="option4">
+          <h4>リンクだけ送る</h4>
+          <p class="share-message"></p>
+          <a href="#" class="link-button" data-type="linkOnly">紹介文をつけずに紹介する</a>
+          </label>
+        </div>
+      </div>
     </div>
-
-    <!-- モーダルの構造を変更 -->
-    <div class="modal-overlay" id="shareModalOverlay">
-        <div id="shareModal" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span class="close">
-                        <i class="fas fa-times"></i>
-                    </span>
-                </div>
-                <h3>紹介する</h3>
-                
-                <div class="share-options">
-                    <!-- オプション1 -->
-                    <div class="share-option">
-                        <input type="radio" id="option1" name="shareOption" value="friend" checked>
-                        <label for="option1">
-                            <h4>親しい方に送る</h4>
-                            <p class="share-message">いま働いている会社で社員を募集しているんだけど興味ない？<br>
-                            アパートの入居仲介をする仕事か、建物を管理する仕事なんだけど、周りの先輩がサポートしてくれるし、職場の風通しも良いからすごく働きやすいよ。<br>
-                            興味があれば相談に乗るから、いつでも連絡ください！</p>
-                            <a href="#" class="link-button" data-type="friend">この文章を紹介する</a>
-                        </label>
-                    </div>
-
-                    <!-- オプション2 -->
-                    <div class="share-option">
-                        <input type="radio" id="option2" name="shareOption" value="acquaintance">
-                        <label for="option2">
-                            <h4>知り合いの方に送る</h4>
-                            <p class="share-message">現在、東建コーポレーションでは仲介部、管理部で働く社員を募集しています<br>
-                            プライム上場企業で活躍し、キャリアアップを目指してみませんか？<br>
-                            職場の先輩社員によるサポート体制が整っているため、実務経験が浅い方でも安心です。<br>
-                            ご興味をいただけたら、お気軽にご相談ください。</p>
-                            <a href="#" class="link-button" data-type="acquaintance">この文章を紹介する</a>
-                        </label>
-                    </div>
-
-                    <!-- オプション3 -->
-                    <div class="share-option">
-                        <input type="radio" id="option3" name="shareOption" value="stranger">
-                        <label for="option3">
-                            <h4>面識が少ない方に送る</h4>
-                            <p class="share-message">現在、東建コーポレーションでは仲介部、管理部で働く社員を募集しています。<br>
-                            プライム上場企業で活躍しながら、キャリアアップを目指してみませんか？<br>
-                            経験豊富な先輩社員による充実したサポート体制のもと、安心して働いていただけます。<br>
-                            ご興味をいただけたら、お気軽にご相談ください。</p>
-                            <a href="#" class="link-button" data-type="stranger">この文章を紹介する</a>
-                        </label>
-                    </div>
-
-                    <!-- オプション4 -->
-                    <div class="share-option">
-                        <input type="radio" id="option4" name="shareOption" value="linkOnly">
-                        <label for="option4">
-                            <h4>リンクだけ送る</h4>
-                            <p class="share-message"></p>
-                            <a href="#" class="link-button" data-type="linkOnly">紹介文をつけずに紹介する</a>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
+  </div>
+</div>
+<div class="modal-overlay" id="qrModalOverlay">
+  <div id="qrModal" class="modal">
+    <div class="modal-content"> <span class="close"> <i class="fas fa-times"></i> </span>
+      <h3>社員紹介用QRコード</h3>
+      <div class="qr-content"> <img id="qrImage" src="" alt="QRコード"> </div>
     </div>
+  </div>
+</div>
 
-    <div class="modal-overlay" id="qrModalOverlay">
-        <div id="qrModal" class="modal">
-            <div class="modal-content">
-                <span class="close">
-                    <i class="fas fa-times"></i>
-                </span>
-                <h3>社員紹介用QRコード</h3>
-                <div class="qr-content">
-                    <img id="qrImage" src="" alt="QRコード">
-                </div>
-            </div>
-        </div>
-    </div>
+<!-- 共通設定 --> 
+<script src="js/config.js"></script> 
+<script src="js/common.js"></script> 
 
-    <!-- 共通設定 -->
-    <script src="js/config.js"></script>
-    <script src="js/common.js"></script>
-    
-    <!-- 機能別のスクリプト -->
-    <script src="js/link.js"></script>
+<!-- 機能別のスクリプト --> 
+<script src="js/link.js"></script>
 </body>
 </html>
