@@ -267,6 +267,7 @@ function confirmForm(appType) {
     }
 
     // メールアドレスのバリデーション
+    /* 2024.12.27 omit T.Haneda
     const regex_email = /^[a-zA-Z0-9_.+-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/;
     let email_body = document.getElementById("email_body").value;
     if (email_body === '' || !regex_email.test(email_body)) {
@@ -277,6 +278,7 @@ function confirmForm(appType) {
     } else {
         document.getElementById("email_bottom").hidden = true;
     }
+    */
 
     // 電話番号のバリデーション
     const regex_phone0 = /^(050|070|080|090)-\d{4}-\d{4}$/;
