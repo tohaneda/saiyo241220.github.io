@@ -448,6 +448,22 @@ a {
 	opacity: 1;
 }
 
+/* aタグ専用スタイルリセット */
+.viewElem a {
+    all: unset; /* すべてのスタイルをリセット */
+    text-decoration: none; /* 下線を削除 */
+    color: inherit; /* 親要素から色を継承 */
+}
+
+/* 必要なスタイルを再追加 */
+.viewElem a {
+    cursor: pointer; /* ポインタカーソル */
+}
+
+.viewElem a:hover {
+    text-decoration: underline; /* ホバー時の下線 */
+}
+
 #fixed_btn {
 	position: fixed;
 	bottom: 0;
