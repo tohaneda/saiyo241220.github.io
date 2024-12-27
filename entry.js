@@ -207,7 +207,7 @@ function setParams(params) {
     setFormValue("location2_body", params.city);
     setFormValue("notes_body", params.notes);
 
-    setFormValue("gender_input", params.gender);
+   // setFormValue("gender_input", params.gender);
     setFormValue("consent_input", params.consent);
 }
 
@@ -353,7 +353,7 @@ function confirmForm(appType) {
 
 // 確認画面の値表示
 function displayConfirmationValues() {
-    const fields = ['name', 'age', 'gender', 'email', 'phone', 'location', 'notes', 'consent'];
+    const fields = ['name', 'age', 'email', 'phone', 'location', 'notes', 'consent'];
     fields.forEach(field => {
         const input = document.getElementById(`${field}_input`);
         const display = document.getElementById(field);
@@ -362,7 +362,7 @@ function displayConfirmationValues() {
             display.hidden = false;
             
             let value = '';
-            if (field === 'gender' || field === 'consent') {
+            if (field === 'consent') {
                 value = getRadioValue(`${field}_input`);
             } else {
                 value = document.getElementById(`${field}_body`).value;
@@ -390,7 +390,7 @@ function originalForm() {
     document.getElementById("submit").hidden = true;
     document.getElementById("formTitle").innerHTML = '応募フォーム';
 
-    const fields = ['name', 'age', 'gender', 'email', 'phone', 'location', 'notes', 'consent'];
+    const fields = ['name', 'age', 'email', 'phone', 'location', 'notes', 'consent'];
     fields.forEach(field => {
         const input = document.getElementById(`${field}_input`);
         const display = document.getElementById(field);
