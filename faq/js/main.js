@@ -77,15 +77,12 @@ function createFaqSection(section) {
         const answer = document.createElement('div');
         answer.className = 'answer';
         answer.textContent = faq.answer;
-        answer.style.whiteSpace = 'pre-wrap';
-        answer.style.textIndent = '1em';
-        answer.style.display = 'none';
-
+        
+        // 質問クリックで回答を表示/非表示
         question.addEventListener('click', () => {
-            const isOpen = answer.style.display === 'block';
-            answer.style.display = isOpen ? 'none' : 'block';
-            question.querySelector('i').className = isOpen ? 
-                'fas fa-chevron-down' : 'fas fa-chevron-up';
+            answer.classList.toggle('is-open');            
+            question.querySelector('i').className = answer.classList.contains('is-open') ? 
+                'fas fa-chevron-up' : 'fas fa-chevron-down';
         });
 
         faqItem.appendChild(question);
