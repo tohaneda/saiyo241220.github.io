@@ -33,7 +33,6 @@
     font-size: 1.5rem;
     margin-bottom: 20px;
     color: #1B6B3F;
-    text-align: left;
 }
 
 .faq-item {
@@ -49,6 +48,7 @@
     align-items: center;
     gap: 10px;
     font-size: 1.2rem;
+    text-align: left;
 }
 
 .question i {
