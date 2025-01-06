@@ -78,6 +78,7 @@ function createFaqSection(section) {
         answer.className = 'answer';
         answer.textContent = faq.answer;
         answer.style.whiteSpace = 'pre-wrap';
+        answer.style.textIndent = '1em';
         answer.style.display = 'none';
 
         question.addEventListener('click', () => {
