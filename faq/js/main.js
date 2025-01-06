@@ -76,7 +76,10 @@ function createFaqSection(section) {
         
         const answer = document.createElement('div');
         answer.className = 'answer';
-        answer.textContent = faq.answer;
+        const paragraphs = faq.answer.split('\n').map(text => 
+            `<p>${text}</p>`
+        ).join('');
+        answer.innerHTML = paragraphs;
         
         // 質問クリックで回答を表示/非表示
         question.addEventListener('click', () => {

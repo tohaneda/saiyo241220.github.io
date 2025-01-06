@@ -8,6 +8,7 @@
     margin: 0 auto;
     text-align: left;
     margin-bottom: 30px;
+    text-indent: 1em;
 }
 
 .faq-button{
@@ -92,9 +93,12 @@
 /* JSで生成するFAQのanswerのスタイル */
 .answer {
     white-space: pre-wrap;
-    text-indent: 1em;
-    padding-left: 1em;
     display: none;  /* 初期状態は非表示 */
+}
+
+.answer p {
+    text-indent: 1em;
+    margin: 0;
 }
 
 .answer.is-open {
