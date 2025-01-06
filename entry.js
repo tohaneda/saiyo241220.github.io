@@ -4,8 +4,6 @@ let submitted = false;
 
 // Googleフォームのエントリーコード
 const FORM_ENTRIES = {
-    EMPLOYEE_NAME: 'entry.1477204142',
-    EMPLOYEE_BRANCH: 'entry.1783931350',
     NAME: 'entry.2051556631',
     AGE: 'entry.1557022610',
     EMAIL: 'entry.1258305063',
@@ -14,8 +12,10 @@ const FORM_ENTRIES = {
     CITY: 'entry.908310173',
     NOTES: 'entry.1932797490',
     CONSENT: 'entry.1591769099',
-    EMP_ID: 'entry.1867112319',
-    REF_TYPE: 'entry.1379412327',
+    EMPLOYEE_NAME: 'entry.1019416909',
+    EMPLOYEE_BRANCH: 'entry.1313270745',
+    EMP_ID: 'entry.337043072',
+    REF_TYPE: 'entry.1610124168',
 };
 
 document.addEventListener("DOMContentLoaded", function() {
