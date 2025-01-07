@@ -216,7 +216,7 @@
 					<tr>
 						<th>年齢</th>
 						<td id="age_input"><div class="input-with-suffix">
-								<input id="age_body" type="text" required>
+								<input id="age_body" type="text">
 								<span class="suffix">歳</span> </div>
 							<p class="caution" id="age_bottom" hidden>※年齢を入力してください</p></td>
 						<td id="age"></td>
@@ -235,7 +235,7 @@
 						<td id="gender"></td>
 					</tr>-->
 					<tr>
-						<th>メールアドレス</th>
+						<th>メールアドレス<span class="required-mark">※必須</span></th>
 						<td id="email_input"><input id="email_body" type="email" required>
 							<p class="caution" id="email_bottom" hidden>※メールアドレスを入力してください</p></td>
 						<td id="email"></td>
@@ -250,9 +250,9 @@
 				<p class="mt1 f-bold">2.ご希望される勤務地について教えてください。<br></p>
 				<table cellpadding="0" cellspacing="0">
 					<tr>
-						<th>希望勤務地<!--<span class="required-mark">※必須</span>--></th>
+						<th>希望勤務地</th>
 						<td id="location_input">
-							<select name="prefecture" id="location_body" required>
+							<select name="prefecture" id="location_body">
 								<option value="" selected>都道府県を選択</option>
 								<option value="北海道">北海道</option>
 								<option value="青森県">青森県</option>

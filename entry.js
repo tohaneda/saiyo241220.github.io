@@ -266,11 +266,9 @@ function confirmForm(appType) {
         document.getElementById("name_bottom").hidden = true;
     }
 
-    // メールアドレスのバリデーション
-    /* 2024.12.27 omit T.Haneda
-    const regex_email = /^[a-zA-Z0-9_.+-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/;
+    // メールアドレスの有無のみチェック
     let email_body = document.getElementById("email_body").value;
-    if (email_body === '' || !regex_email.test(email_body)) {
+    if (email_body === '') {
         document.getElementById("email_bottom").hidden = false;
         document.getElementById("email_bottom").innerHTML = "※メールアドレスを入力してください";
         isValid = false;
@@ -278,7 +276,6 @@ function confirmForm(appType) {
     } else {
         document.getElementById("email_bottom").hidden = true;
     }
-    */
 
     // 電話番号のバリデーション
     const regex_phone0 = /^(050|070|080|090)-\d{4}-\d{4}$/;
@@ -294,17 +291,6 @@ function confirmForm(appType) {
         document.getElementById("phone_bottom").hidden = true;
     }
 
-    // 希望勤務地のバリデーション
-    /*
-    if (document.getElementById("location_body").value === '' || document.getElementById("location2_body").value === '') {
-        document.getElementById("location_bottom").hidden = false;
-        document.getElementById("location_bottom").innerHTML = "※希望勤務地を入力してください";
-        isValid = false;
-        if (!firstInvalidElement) firstInvalidElement = document.getElementById("location_body");
-    } else {
-        document.getElementById("location_bottom").hidden = true;
-    }
-    */
     // 承諾確認のバリデーション
     let consentElements = document.querySelectorAll("#consent_input input[type='radio']");
 
