@@ -1,6 +1,6 @@
-.reward {
+/*.reward {
 	background: url(../image/eigyo_l.png) 0 100% / 12.5vw auto no-repeat, url(../image/eigyo_r.png) 100% 100% / 12.5vw auto no-repeat;
-}
+}*/
 .btns_bg {
 	background: linear-gradient(96deg, #00c3ff -3%, #005275 50%, #00233b 103%);
 }
@@ -13,8 +13,8 @@
 .button .arrow::before {
   background-color: #252c71;
 }
-@media screen and (min-width: 861px) {
+/*@media screen and (min-width: 861px) {
 	.reward {
 		background: url(../image/eigyo_l.png) 0 100% / 107.5px auto no-repeat, url(../image/eigyo_r.png) 100% 100% / 107.5px auto no-repeat;
 	}
-}
+}*/

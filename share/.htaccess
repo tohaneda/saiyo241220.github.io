@@ -1,0 +1,5 @@
+# SVGファイルのMIMEタイプを設定
+AddType image/svg+xml .svg .svgz
+
+# SVGZファイルがgzip圧縮されていることを認識させる
+AddEncoding gzip .svgz

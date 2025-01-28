@@ -4,6 +4,8 @@ let submitted = false;
 
 // Googleフォームのエントリーコード
 const FORM_ENTRIES = {
+    EMPLOYEE_NAME: 'entry.1477204142',
+    EMPLOYEE_BRANCH: 'entry.1783931350',
     NAME: 'entry.2051556631',
     AGE: 'entry.1557022610',
     EMAIL: 'entry.1258305063',
@@ -12,10 +14,8 @@ const FORM_ENTRIES = {
     CITY: 'entry.908310173',
     NOTES: 'entry.1932797490',
     CONSENT: 'entry.1591769099',
-    EMPLOYEE_NAME: 'entry.1019416909',
-    EMPLOYEE_BRANCH: 'entry.1313270745',
-    EMP_ID: 'entry.337043072',
-    REF_TYPE: 'entry.1610124168',
+    EMP_ID: 'entry.1867112319',
+    REF_TYPE: 'entry.1379412327',
 };
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -184,7 +184,7 @@ function setParams(params) {
 
     // 直接応募か代理応募の判定
     if (params.appType === '1') {
-        formTitle.innerHTML = '代理応募フォーム';
+        formTitle.innerHTML = '代理応募';
     } else {
         formTitle.innerHTML = '応募フォーム';
     }
@@ -207,7 +207,7 @@ function setParams(params) {
     setFormValue("location2_body", params.city);
     setFormValue("notes_body", params.notes);
 
-   // setFormValue("gender_input", params.gender);
+    setFormValue("gender_input", params.gender);
     setFormValue("consent_input", params.consent);
 }
 
@@ -266,9 +266,10 @@ function confirmForm(appType) {
         document.getElementById("name_bottom").hidden = true;
     }
 
-    // メールアドレスの有無のみチェック
+    // メールアドレスのバリデーション
+    const regex_email = /^[a-zA-Z0-9_.+-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/;
     let email_body = document.getElementById("email_body").value;
-    if (email_body === '') {
+    if (email_body === '' || !regex_email.test(email_body)) {
         document.getElementById("email_bottom").hidden = false;
         document.getElementById("email_bottom").innerHTML = "※メールアドレスを入力してください";
         isValid = false;
@@ -289,6 +290,16 @@ function confirmForm(appType) {
         if (!firstInvalidElement) firstInvalidElement = document.getElementById("phone_body");
     } else {
         document.getElementById("phone_bottom").hidden = true;
+    }
+
+    // 希望勤務地のバリデーション
+    if (document.getElementById("location_body").value === '' || document.getElementById("location2_body").value === '') {
+        document.getElementById("location_bottom").hidden = false;
+        document.getElementById("location_bottom").innerHTML = "※希望勤務地を入力してください";
+        isValid = false;
+        if (!firstInvalidElement) firstInvalidElement = document.getElementById("location_body");
+    } else {
+        document.getElementById("location_bottom").hidden = true;
     }
 
     // 承諾確認のバリデーション
@@ -339,7 +350,7 @@ function confirmForm(appType) {
 
 // 確認画面の値表示
 function displayConfirmationValues() {
-    const fields = ['name', 'age', 'email', 'phone', 'location', 'notes', 'consent'];
+    const fields = ['name', 'age', 'gender', 'email', 'phone', 'location', 'notes', 'consent'];
     fields.forEach(field => {
         const input = document.getElementById(`${field}_input`);
         const display = document.getElementById(field);
@@ -348,12 +359,12 @@ function displayConfirmationValues() {
             display.hidden = false;
             
             let value = '';
-            if (field === 'consent') {
+            if (field === 'gender' || field === 'consent') {
                 value = getRadioValue(`${field}_input`);
             } else {
                 value = document.getElementById(`${field}_body`).value;
                 if (field === 'name') value += ' 様';
-/*                if (field === 'age') value += ' 才';*/
+                if (field === 'age') value += ' 才';
             }
             display.innerHTML = value || '未入力';
         }
@@ -376,7 +387,7 @@ function originalForm() {
     document.getElementById("submit").hidden = true;
     document.getElementById("formTitle").innerHTML = '応募フォーム';
 
-    const fields = ['name', 'age', 'email', 'phone', 'location', 'notes', 'consent'];
+    const fields = ['name', 'age', 'gender', 'email', 'phone', 'location', 'notes', 'consent'];
     fields.forEach(field => {
         const input = document.getElementById(`${field}_input`);
         const display = document.getElementById(field);
