@@ -1,5 +1,5 @@
 // BCCメールアドレス
-//const BBC_EMAIL = "atsushi_sunahara+bcc@token.co.jp";
+const BBC_EMAIL = "atsushi_sunahara+bcc@token.co.jp";
 
 // メールテンプレートの定義
 const EMAIL_TITLE = "応募を受け付けました";
@@ -8,10 +8,10 @@ ${name} 様
 
 東建コーポレーションの採用面接にご応募いただき、ありがとうございました。
 選考日程の詳細について、弊社担当者より後日ご連絡させていただきます。
-会社説明資料を添付いたします。ご一読いただけると幸いです。
+営業部の紹介資料を添付いたします。ご一読いただけると幸いです。
 よろしくお願いいたします。
 
-会社説明資料
+（紹介資料）
 https://docs.google.com/presentation/d/18JVd0IdSqTnIQ6r5-JLociRveL_xaE4L1vQ4fDs5F6A/edit#slide=id.g2788faba6e4_8_7
 `;
 

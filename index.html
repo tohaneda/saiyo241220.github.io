@@ -175,6 +175,7 @@
 			</ol>
     </div>
   </section>
+  <a href="https://tohaneda.github.io/saiyo241220.github.io/faq/" class="link_button">よくある質問<i class="fa-solid fa-angle-right"></i></a>
   <section id="contact">
 		<!--<div class="viewElem"><em>Contact</em></div>-->
     <div class="viewElem"><h2>お問い合わせ</h2></div>
@@ -189,8 +190,9 @@
 <div class="entry_wrap">
   <section id="form">
     <h2 id="formTitle">代理応募フォーム</h2>
-    <button id="entryClose"><i class="fa-solid fa-xmark"></i></button>
+    <!--<button id="entryClose"><i class="fa-solid fa-xmark"></i></button>-->
     <form id="myForm" action="https://docs.google.com/forms/d/e/1FAIpQLSea5OPkiVc1AOmK10lAzG46RI3NFhv6JB4OqVYIAvOnbpWutw/formResponse" method="POST" target="hidden_iframe">
+      <p class="lead">ご本人にかわってあなたが応募する場合、下記より応募してください。 応募完了後、ご本人へ受付メールが送信されます。</p>
       <h3 class="info-title">ご紹介者の情報</h3>
       <div class="employee-info">
         <div  class="employee-info-row"> <span>氏名：</span>
@@ -201,9 +203,9 @@
         <input type="hidden" id="emp_id_input">
         <input type="hidden" id="ref_type_input">
       </div>
-      <h3 class="form-title">ご本人情報の入力</h3>
+      <h3 class="form-title">入社希望者様情報の入力</h3>
 			<div class="table_wrap">
-				<p class="f-bold">1.ご応募される方の情報を入力してください。</p>
+				<p class="f-bold">1.入社希望者様情報についてご入力ください</p>
 				<table cellpadding="0" cellspacing="0">
 					<tr>
 						<th>氏名<span class="required-mark">※必須</span></th>
@@ -309,7 +311,7 @@
 						<td id="location"></td>
 					</tr>
 				</table>
-				<p class="mt1 f-bold">3.弊社に伝えておきたい内容があれば教えてください</p>
+				<p class="mt1 f-bold">3.会社に伝えておきたい内容があれば教えてください</p>
 				<table cellpadding="0" cellspacing="0" class="other">
 					<tr>
 						<td rowspan="2" id="notes_input"><textarea id="notes_body" rows="5"></textarea></td>
@@ -318,7 +320,7 @@
 				</table>
 				<table id="consent-table" class="other" hidden>
 					<tr id="consent-row">
-						<th>ご本人の承諾を得ていますか？<span class="required-mark">※必須</span></th>
+						<th>入社希望者本人の承諾<span class="required-mark">※必須</span></th>
 						<td id="consent_input" class="radioOther"><label>
 								<input type="radio" value="はい">
 								はい</label>

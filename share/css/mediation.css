@@ -14,10 +14,10 @@
 }
 .reward dd {
 	width: calc(100% - 4.2em);
-	background: url(../image/chukai_l.png) 0 100% / 9vw auto no-repeat, url(../image/chukai_r.png) 100% 100% / 9vw auto no-repeat;
+	/* background: url(../image/chukai_l.png) 0 100% / 9vw auto no-repeat, url(../image/chukai_r.png) 100% 100% / 9vw auto no-repeat; */
 }
 .reward dd img {
-	width: 78%;
+	width: 100%;
 }
 .btns_bg {
 	background: linear-gradient(135deg, #ff53ff -5%, #7a153f 50%, #5d0715 100%);
@@ -35,7 +35,7 @@
 	.reward dt {
 		font-size: 30px;
 	}
-	.reward dd {
+	/*.reward dd {
 		background: url(../image/chukai_l.png) 0 100% / 78px auto no-repeat, url(../image/chukai_r.png) 100% 100% / 78px auto no-repeat;
-	}
+	}*/
 }

@@ -16,7 +16,7 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    max-width: 400px;
+    max-width: 800px;
     width: 100%;
     height: 80vh;
     display: none;
@@ -59,7 +59,8 @@
 
 .modal .close {
     position: absolute;
-    left: 20px;
+  top: -10px;
+    left: -10px;
     cursor: pointer;
     font-size: 24px;
     color: #666;
@@ -69,16 +70,43 @@
     align-items: center;
     justify-content: center;
 }
+.modal#qrModal .close {
+  top: 10px;
+  left: 10px;
+}
 
 .modal h3 {
     text-align: center;
-    font-size: 1.5rem;
-    margin: 0 0 16px 0;
-    font-weight: normal;
+  width: 30.47vw;
+    margin: 0 auto 1.3em;
+    font-weight: 600;
+  color: #3f70f5;
+}
+.modal#qrModal h3 {
+  width: 80%;
+  margin: 0 auto 0.9em;
+  font-size: 4.65vw;
+  color: #283a8d;
+}
+.modal h3 img {
+  width: 100%;
+}
+.modal h3 + p {
+  padding: 0 1em;
+  line-height: 1.5;
+}
+.dot_line {
+  display: block;
+  width: 100%;
+  height: 0.7vw;
+  margin: 1.6em 0 0;
+}
+.modal#qrModal .dot_line {
+  margin: 1.1em 0 2.6em;
 }
 
 .share-options {
-    padding-top: 20px;
+    padding-top: 2em;
 }
 
 .share-option {
@@ -100,25 +128,59 @@
     padding: 8px;
 }
 
+.share-option object {
+  width: 100%;
+  height: 18.6vw;
+}
 .share-option h4 {
     font-size: 1.5rem;
-    margin: 0 0 8px 0;
-    font-weight: bold;
+    margin: 0 0 1.2em 0;
+    font-weight: 400;
+  text-align: center;
+  color: #283a8d;
 }
 
 .share-option p {
-    font-size: 1rem;
+    font-size: 3.49vw;
     margin: 0 0 8px 0;
     color: #333;
-    line-height: 1.4;
+  line-height: 1.6;
 }
 
 .link-button {
-    display: block;
-    color: #007AFF;
-    text-decoration: none;
-    font-size: 1rem;
-    padding: 4px 0;
+  position: relative;
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  font-size: 4.19vw;
+  text-align: center;
+  padding: 0.85em 0;
+  background: linear-gradient(to right,  #54dfff 0%,#3770e7 100%);
+  border-radius: 3em;
+}
+.link-button .arrow {
+  position: absolute;
+	top: 1vw;
+	right: 1em;
+	bottom: 0;
+  display: block;
+  width: 5vw;
+  height: 1px;
+  margin: auto 0;
+  border-radius: 9999px;
+  background: #fff;
+}
+.link-button .arrow::before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 1px);
+  right: 0;
+  width: 2vw;
+  height: 1px;
+  background: #fff;
+  border-radius: 9999px;
+  transform: rotate(35deg);
+  transform-origin: calc(100% - 1px) 50%;
 }
 
 .link-button:hover {
@@ -127,14 +189,56 @@
 
 .qr-content{
     text-align: center;
+  width: 69.77vw;
     margin: 0 auto;
 }
 
 .qr-content img{
     width: 100%;
-    max-width: 300px;
+    max-width: 450px;
 }
 
 #shareModal .modal-content {
     padding-bottom: 100px;
+}
+
+@media screen and (min-width: 861px) {
+  .modal .close {
+    font-size: 48px;
+    width: 88px;
+    height: 88px;
+  }
+  .modal h3 {
+    width: 262px;
+  }
+  .modal#qrModal h3 {
+    width: 524px;
+    font-size: 40px;
+  }
+  .dot_line {
+    height: 6px;
+  }
+  .share-option object {
+    height: 160px;
+  }
+  .share-option h4 {
+    font-size: 48px;
+  }
+  .share-option p {
+    font-size: 30px;
+    margin-bottom: 1em;
+  }
+  .link-button {
+    font-size: 36px;
+  }
+	.link-button .arrow {
+		top: 8.6px;
+		width: 43px;
+	}
+	.link-button .arrow::before {
+		width: 17.2px;
+	}
+  .qr-content{
+    width: 450px;
+  }
 }
