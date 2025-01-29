@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_レイヤー_2" data-name="レイヤー 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 104 104">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: #091851;
+        stroke-miterlimit: 10;
+        stroke-width: 2.4px;
+      }
+    </style>
+  </defs>
+  <g id="_レイヤー_1-2" data-name="レイヤー 1">
+    <g>
+      <circle class="cls-2" cx="52" cy="26.21" r="12.77"/>
+      <path class="cls-2" d="M21.81,79.94v-16.87c0-7.85,6.36-14.21,14.21-14.21h31.97c7.85,0,14.21,6.36,14.21,14.21v16.87"/>
+      <g id="icon_data" data-name="icon data">
+        <path class="cls-2" d="M57.09,85.28l6.24-6.06h0l3.15-3.15c3.06-3.2,2.94-8.28-.26-11.33-3.1-2.96-7.97-2.96-11.07,0l-3.15,3.14-3.15-3.14c-3.2-3.06-8.28-2.94-11.33.26-2.96,3.1-2.96,7.97,0,11.07l14.48,14.48"/>
+      </g>
+    </g>
+    <rect class="cls-1" width="104" height="104"/>
+  </g>
+</svg>

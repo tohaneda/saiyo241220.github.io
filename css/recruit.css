@@ -315,8 +315,7 @@ a {
 	letter-spacing: -0.03em;
 }
 .outline_wrap section#flow {
-	margin-top: -1px;
-	padding: 0 5% 1.8em;
+	padding: 0 5% 0.9em;
 }
 .outline_wrap section#flow h2 {
 	position: relative;
@@ -343,6 +342,30 @@ a {
 }
 .outline_wrap section#flow.open h2 i {
 	transform: rotate(180deg);
+}
+
+.link_button {
+	position: relative;
+  display: block;
+  margin: 0 5% 1.8em;
+	padding: 0.616em 1em;
+	font-size: 116.7%;
+	font-weight: 600;
+	color: #fff;
+	text-align: left;
+	background: linear-gradient(to right, #29cece 0%,#2aa5d6 100%);
+	cursor: pointer;
+	border-radius: 0.5em;
+	box-sizing: border-box;
+}
+.link_button i {
+	position: absolute;
+	top: 0;
+	right: 1.15em;
+	bottom: 0;
+	height: 0.8em;
+	margin: auto 0;
+	transform-origin: 50% 43%;
 }
 
 .slider {
