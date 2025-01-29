@@ -18,15 +18,15 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const button = document.createElement('button');
         button.className = 'faq-button';
-        button.textContent = section.title;
+        button.innerHTML = section.title + '<i class="arrow"></i>';
         button.setAttribute('data-section', key);
         
-        const frameLabel = document.createElement('div');
+        /*const frameLabel = document.createElement('div');
         frameLabel.className = 'frame-number';
-        // frameLabel.textContent = `Frame ${frameNumber}`;
+         frameLabel.textContent = `Frame ${frameNumber}`;*/
         
         buttonWrapper.appendChild(button);
-        buttonWrapper.appendChild(frameLabel);
+        //buttonWrapper.appendChild(frameLabel);
         buttonsContainer.appendChild(buttonWrapper);
         
         // クリックイベントの追加
@@ -54,7 +54,7 @@ function createFaqSection(section) {
     
     const backToTop = document.createElement('div');
     backToTop.className = 'back-to-top';
-    backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    backToTop.innerHTML = '<i class="fa-solid fa-chevron-up"></i>';
     backToTop.addEventListener('click', () => {
         window.scrollTo({
             top: 0,
@@ -72,20 +72,18 @@ function createFaqSection(section) {
 
         const question = document.createElement('div');
         question.className = 'question';
-        question.innerHTML = `<i class="fas fa-chevron-down"></i> ${faq.question}`;
+        question.innerHTML = `<i class="arrow"></i> ${faq.question}`;
         
         const answer = document.createElement('div');
         answer.className = 'answer';
-        const paragraphs = faq.answer.split('\n').map(text => 
-            `<p>${text}</p>`
-        ).join('');
-        answer.innerHTML = paragraphs;
-        
-        // 質問クリックで回答を表示/非表示
+        answer.textContent = faq.answer;
+        answer.style.display = 'none';
+
         question.addEventListener('click', () => {
-            answer.classList.toggle('is-open');            
-            question.querySelector('i').className = answer.classList.contains('is-open') ? 
-                'fas fa-chevron-up' : 'fas fa-chevron-down';
+            const isOpen = answer.style.display === 'block';
+            answer.style.display = isOpen ? 'none' : 'block';
+            question.querySelector('i').className = isOpen ? 
+                'arrow' : 'arrow up';
         });
 
         faqItem.appendChild(question);
