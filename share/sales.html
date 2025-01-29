@@ -15,19 +15,15 @@
 </head>
 <body>
 <header>
-  <h1>営業部<hr><b>ご紹介特典</b></h1>
+  <h1>営業部<hr><b>社員紹介制度</b></h1>
 </header>
 <div class="container">
   <div class="amount">
     <div class="reward-subtitle">おひとり入社につき</div>
     <div class="reward-title">奨励金</div>
     <div class="reward"><img src="image/100000.png" alt="100,000"></div>
-    <p class="description">※ご紹介いただいた方が入社後6ヶ月以内に退職された場合、<br>
-      奨励金の支払対象外となります。</p>
     <div class="btns_bg">
       <ul>
-        <li><a href="#" class="link" id="linkButton">紹介ページを見る<i class="arrow"></i></a></li>
-        <li><a href="https://tohaneda.github.io/saiyo241220.github.io/faq/" class="question"><img src="image/arrow_icon.png" alt="＞">よくある質問</a></li>
         <li>
           <button class="button primary-button" id="shareButton" data-modal-target="shareModal">紹介する<i class="arrow"></i></button>
         </li>
@@ -37,6 +33,8 @@
         <li>
           <button class="button secondary-button qr-button" id="qrButton" data-modal-target="qrModal">QRコード<i class="arrow"></i></button>
         </li>
+        <li><a href="#" class="link" id="linkButton">紹介ページを見る<i class="arrow"></i></a></li>
+        <li><a href="faq.html" class="question"><img src="image/arrow_icon.png" alt="＞">よくある質問</a></li>
       </ul>
     </div>
   </div>
@@ -47,31 +45,33 @@
   <div id="shareModal" class="modal">
     <div class="modal-content">
       <div class="modal-header"> <span class="close"> <i class="fas fa-times"></i> </span> </div>
-      <h3>紹介する</h3>
+      <h3><img src="image/introduce.png" alt="紹介する"></h3>
+      <p class="lead">あなたとの関係性に応じたメッセージと紹介ページのリンクを、メールやLINEで送信できます。<br>（メッセージは編集可能です）</p>
+      <object type="image/svg+xml" data="image/dotted.svg" class="dot_line">････････････････････</object>
       <div class="share-options"> 
         <!-- オプション1 -->
         <div class="share-option">
           <input type="radio" id="option1" name="shareOption" value="friend" checked>
           <label for="option1">
-          <h4>親しい方に送る</h4>
-          <p class="share-message">私が働いている会社で社員を募集しているんだけど興味ない？<br>
-            営業の仕事なんだけど、先輩もサポートしてくれるし、<br>
-            風通しも良いからすごく働きやすいよ。<br>
-            興味があれば相談に乗るから、いつでも連絡ください！</p>
-          <a href="#" class="link-button" data-type="friend">この紹介文で紹介する</a>
+          <object type="image/svg+xml" data="image/icon02.svg">親しい方に送る</object>
+          <h4>親しい方に送る</h4> 
+          <p class="share-message">私が働いでいる東建コーポレーションでは社員を募集していますが、興味ありませんか？<br>
+            先輩もサポートしてくれるし、風通しも良い職場環境なので、とても働きやすいですよ。<br>
+            興味があれば相談に乗ります。いつでも連絡してください！</p>
+            <a href="#" class="link-button" data-type="friend">このメッセージで紹介する<i class="arrow"></i></a>
           </label>
         </div>
-        
         <!-- オプション2 -->
         <div class="share-option">
           <input type="radio" id="option2" name="shareOption" value="acquaintance">
           <label for="option2">
+          <object type="image/svg+xml" data="image/icon01.svg">知り合いの方に送る</object>
           <h4>知り合いの方に送る</h4>
           <p class="share-message">現在、東建コーポレーションでは社員を募集しています。<br>
             高収入やキャリアアップの実現と、充実したワークライフバランスの両立を一緒に目指してみませんか？<br>
             営業部は、実際の仕事内容を入社前に体験できる制度があるため、安心してご応募いただけます。<br>
             ご興味をいただけたら、お気軽にご相談ください。</p>
-          <a href="#" class="link-button" data-type="acquaintance">この紹介文で紹介する</a>
+          <a href="#" class="link-button" data-type="acquaintance">このメッセージで紹介する<i class="arrow"></i></a>
           </label>
         </div>
         
@@ -79,22 +79,10 @@
         <div class="share-option">
           <input type="radio" id="option3" name="shareOption" value="stranger">
           <label for="option3">
-          <h4>面識が少ない方に送る</h4>
-          <p class="share-message">現在、東建コーポレーションでは営業部で働く社員を募集しています。<br>
-            高収入やキャリアアップの実現と、充実したワークライフバランスの両立が目指せる魅力的な会社です。<br>
-            入社前に体験入社の制度を設けているため、安心してご応募いただけます。<br>
-            ご興味をいただけたら、お気軽にご相談ください。</p>
-          <a href="#" class="link-button" data-type="stranger">この紹介文で紹介する</a>
-          </label>
-        </div>
-        
-        <!-- オプション4 -->
-        <div class="share-option">
-          <input type="radio" id="option4" name="shareOption" value="linkOnly">
-          <label for="option4">
+          <object type="image/svg+xml" data="image/icon03.svg">リンクだけ送る</object>
           <h4>リンクだけ送る</h4>
           <p class="share-message"></p>
-          <a href="#" class="link-button" data-type="linkOnly">紹介文をつけずに紹介する</a>
+          <a href="#" class="link-button" data-type="linkOnly">メッセージをつけずに紹介する<i class="arrow"></i></a>
           </label>
         </div>
       </div>
@@ -105,6 +93,8 @@
   <div id="qrModal" class="modal">
     <div class="modal-content"> <span class="close"> <i class="fas fa-times"></i> </span>
       <h3>社員紹介用QRコード</h3>
+      <p class="lead">このQRコードをスマートフォンで読み取ると、<br>紹介ページにアクセスします。</p>
+      <object type="image/svg+xml" data="image/dotted.svg" class="dot_line">････････････････････</object>
       <div class="qr-content"> <img id="qrImage" src="" alt="QRコード"> </div>
     </div>
   </div>
