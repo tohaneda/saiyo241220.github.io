@@ -79,6 +79,9 @@ function initializeShareLinks(modal) {
                     .replace(/\n\s*/g, '\n')
                     .trim();
                 shareData.text = `${messageText}\n\n${url}`;
+            } else {
+                // メッセージがない場合はURLのみ表示
+                shareData.text = `${url}`;
             }
 
             try {
