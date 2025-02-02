@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const button = document.createElement('button');
         button.className = 'faq-button';
-        button.innerHTML = section.title + '<i class="arrow"></i>';
+        button.innerHTML = '<object type="image/svg+xml" data="' + section.icon + '">' + section.title + '</object>' + section.title + '<i class="arrow"></i>';
         button.setAttribute('data-section', key);
         
         /*const frameLabel = document.createElement('div');
@@ -50,7 +50,11 @@ function createFaqSection(section) {
     
     const title = document.createElement('h2');
     title.className = 'faq-title';
-    title.textContent = section.title;
+    let tempElement = document.createElement('div');
+    tempElement.innerHTML = section.title;
+
+    // テキストのみを取得して設定
+    title.innerHTML = '<object class="icon" type="image/svg+xml" data="' + section.icon_w + '">' + section.title + '</object>' + tempElement.textContent;
     
     const backToTop = document.createElement('div');
     backToTop.className = 'back-to-top';

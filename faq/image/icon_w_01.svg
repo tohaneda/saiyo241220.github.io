@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_レイヤー_2" data-name="レイヤー 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 90">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: #fff;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+    </style>
+  </defs>
+  <g id="_レイヤー_1-2" data-name="レイヤー 1">
+    <g>
+      <g>
+        <g id="icon_data" data-name="icon data">
+          <polyline class="cls-2" points="21.69 68.6 21.69 47.45 56.04 47.45 56.04 63.54"/>
+          <polygon class="cls-2" points="56.04 68.6 59.61 75.85 18.12 75.85 21.69 68.6 56.04 68.6"/>
+        </g>
+        <g id="icon_data-2" data-name="icon data">
+          <circle class="cls-2" cx="54" cy="21.21" r="7.06"/>
+          <path class="cls-2" d="M38.12,41.8c2.01-3.18,5.34-5.26,9.1-5.26h13.53c6.15,0,11.13,5.55,11.13,12.36v14.23"/>
+        </g>
+      </g>
+      <rect class="cls-1" width="90" height="90"/>
+    </g>
+  </g>
+</svg>

@@ -1,7 +1,9 @@
 // アプリケーションの設定値
 const CONFIG = {
     faq1: {
-        title: "業務に関する質問",
+        title: "業務に関する<br>質問",
+        icon: "image/icon_01.svg",
+        icon_w: "image/icon_w_01.svg",
         faq: [
             {
                 question: "女性でも活躍できますか？",
@@ -18,7 +20,9 @@ const CONFIG = {
         ]
     },
     faq2: {
-        title: "労働条件に関する質問",
+        title: "労働条件に<br>関する質問",
+        icon: "image/icon_02.svg",
+        icon_w: "image/icon_w_02.svg",
         faq: [
             {
                 question: "残業はありますか",
@@ -39,7 +43,9 @@ const CONFIG = {
         ]
     },
     faq3: {
-        title: "評価に関する質問",
+        title: "評価に<br>関する質問",
+        icon: "image/icon_03.svg",
+        icon_w: "image/icon_w_03.svg",
         faq: [
             {
                 question: "初受注までにかかる平均期間を教えてください",
@@ -56,7 +62,9 @@ const CONFIG = {
         ]
     },
     faq4: {
-        title: "育児に関する質問",
+        title: "育児に<br>関する質問",
+        icon: "image/icon_04.svg",
+        icon_w: "image/icon_w_04.svg",
         faq: [
             {
                 question: "育児に関する就業支援制度を教えてください",
@@ -77,7 +85,9 @@ const CONFIG = {
         ]
     },
     faq5: {
-        title: "介護に関する質問",
+        title: "介護に<br>関する質問",
+        icon: "image/icon_05.svg",
+        icon_w: "image/icon_w_05.svg",
         faq: [
             {
                 question: "介護休業について教えてください",
@@ -95,6 +105,8 @@ const CONFIG = {
     },
     faq6: {
         title: "その他",
+        icon: "image/icon_06.svg",
+        icon_w: "image/icon_w_06.svg",
         faq: [
             {
                 question: "どのような服装を選べばいいですか",

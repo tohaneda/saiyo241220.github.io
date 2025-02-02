@@ -131,7 +131,8 @@ a {
 }
 .outline_wrap section#player p,
 .outline_wrap section#life p,
-.outline_wrap section#contact p {
+.outline_wrap section#contact p,
+.outline_wrap section#life .video_cap {
 	color: #fff;
 }
 .outline_wrap section p b {
@@ -139,11 +140,14 @@ a {
 	margin: 0 0.2em;
 	font-size: 117.6%;
 }
+.outline_wrap section .video_cap {
+	margin: 1.5em 0 0.5em;
+  font-size: 3.49vw;
+}
 .outline_wrap section#sales #video {
 	position: relative;
 	display: block;
 	width: 90vw;
-	margin: 1.5em 0 0;
 }
 .outline_wrap section#sales #video i {
 	content: "";
@@ -159,7 +163,8 @@ a {
 	color: #fff;
 	line-height: 1;
 	z-index: 1;
-	opacity: 0.6;
+	opacity: 0.8;
+  text-shadow: 0 0 0.12em rgba(0,0,0,0.7);
 }
 
 .outline_wrap section#player {
@@ -189,7 +194,6 @@ a {
 	position: relative;
 	display: block;
 	width: 90vw;
-	margin: 1.5em 0 0;
 }
 .outline_wrap section#life #video2 i,
 .outline_wrap section#workplace #video3 i {
@@ -206,7 +210,8 @@ a {
 	color: #fff;
 	line-height: 1;
 	z-index: 1;
-	opacity: 0.6;
+	opacity: 0.8;
+  text-shadow: 0 0 0.12em rgba(0,0,0,0.7);
 }
 .outline_wrap section#workplace {
 	padding: 1.8em 5%;
