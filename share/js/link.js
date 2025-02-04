@@ -54,6 +54,42 @@ function initializeLinkButton() {
     });
 }
 
+// メッセージテキストを取得するメソッド
+function getShareMessage(type) {
+    // リンクのみの場合は空文字を返す
+    if (type === 'linkOnly' || type === null) {
+        return '';
+    }
+
+    // inputタグのvalueがtypeのものを取得
+    const selectedOption = document.querySelector(`input[value="${type}"]`);
+    const messageElement = selectedOption?.closest('.share-option')?.querySelector('.share-message');
+    
+    // メッセージがない場合は空文字を返す
+    if (!messageElement) return '';
+    
+    // 連続するスペースを1つのスペースに変換、改行前後のスペースを削除
+    return messageElement.textContent
+        .replace(/\s+/g, ' ')
+        .replace(/\n\s*/g, '\n')
+        .trim();
+}
+
+// LINEシェアを実行するメソッド
+function shareLine(messageText, modal) {
+    const lineShareUrl = `https://line.me/R/share?text=${encodeURIComponent(messageText)}`;
+    
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        window.location.href = lineShareUrl;
+    } else {
+        // pcの場合は何もしない
+        
+        // window.open(lineShareUrl, '_blank', 'width=600,height=500');
+    }
+    
+    modal.style.display = 'none';
+}
+
 // シェアリンク機能の初期化
 function initializeShareLinks(modal) {
     const shareLinks = document.querySelectorAll('.link-button');
@@ -63,26 +99,22 @@ function initializeShareLinks(modal) {
             e.preventDefault();
             
             const type = link.dataset.type;
-            let shareData = {
-                title: '',
-//                title: document.title,
-            };
-
+            const shareMethod = link.dataset.shareMethod || 'default';
             const url = getUrlWithParams(CONFIG.BASE_URL);
+            const message = getShareMessage(type);
+            const messageText = message  ? `${message}\n\n${url}` : `${url}`;
 
-            // 対象本文からメッセージを取得
-            const selectedOption = document.querySelector(`input[value="${type}"]`);
-            const messageElement = selectedOption?.closest('.share-option')?.querySelector('.share-message');
-            if (messageElement) {
-                const messageText = messageElement.textContent
-                    .replace(/\s+/g, ' ')
-                    .replace(/\n\s*/g, '\n')
-                    .trim();
-                shareData.text = `${messageText}\n\n${url}`;
-            } else {
-                // メッセージがない場合はURLのみ表示
-                shareData.text = `${url}`;
+            // LINE共有の場合
+            if (shareMethod === 'line') {
+                shareLine(messageText, modal);
+                return;
             }
+
+            // Web Share APIを使用する場合
+            const shareData = {
+                title: '',
+                text: messageText,
+            };
 
             try {
                 if (!navigator.share) {
@@ -153,10 +185,8 @@ function initializeQRButton() {
 
 // DOMの読み込み完了時に各機能を初期化
 document.addEventListener('DOMContentLoaded', () => {
-    // 各モーダルの初期化
     const shareModal = initializeModal('shareModal');
     const qrModal = initializeModal('qrModal');
-
 
     if (shareModal) {
         initializeShareLinks(shareModal);
