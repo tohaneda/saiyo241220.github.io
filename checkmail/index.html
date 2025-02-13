@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>メールアドレス検索</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <h1>メールアドレス検索</h1>
+    
+    <div class="input-group">
+        <input type="email" id="emailInput" placeholder="メールアドレスを入力">
+        <button onclick="searchEmail()">検索</button>
+    </div>
+
+    <div id="error" class="error"></div>
+    <div id="result"></div>
+
+    <script src="js/checkmail.js"></script>
+</body>
+</html>
