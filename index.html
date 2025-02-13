@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="stylesheet" href="css/recruit.css?v8">
+<link rel="stylesheet" href="css/recruit.css?v10">
 <link rel="stylesheet" href="css/entry.css?v2">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> 
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -186,6 +186,13 @@
     <div class="viewElem"><p class="time">営業時間 9:00～18:00（定休日：土日祝）</p></div>
 	</section>
   <div id="fixed_btn"><a href="">応募フォームへ</a></div>
+  <div id="fixed_sns"><button class="open">SNSで紹介</button>
+    <ul class="sns_btns">
+      <li><a href="https://line.me/R/msg/text/?東建コーポレーションの営業職について、応募ページをご案内します。https://XXXXXXXXXXXX" target="_blank"><object type="image/svg+xml" data="image/line-logo.svg">line</object></a></li>
+      <li><a href="https://twitter.com/intent/tweet?text=東建コーポレーションの営業職について、応募ページをご案内します。https://XXXXXXXXXXXX" target="_blank"><object type="image/svg+xml" data="image/x-logo.svg">x</object></a></li>
+      <li><a href="https://www.instagram.com" target="_blank"><object type="image/svg+xml" data="image/insta-logo.svg">insta</object></a></li>
+    </ul>
+  </div>
 </div>
 <div class="entry_wrap">
   <section id="form">
@@ -459,6 +466,10 @@ player.setJMovie("#video3","MjA4MQ==");
 			// #bg_videoタグのblur値をスクロールに応じて変更
 			const blurValue = Math.min(12, Math.max(0, scrollTop / viewportHeight * 12)); // blur値を0から10の範囲で計算
     	//$('#bg_video').css('filter', `blur(${blurValue}px)`);
+      
+      if ($(window).scrollTop() > $(window).height() * 2) {
+        $('#fixed_sns').addClass('scroll');
+      }
 			
 			ticking = false;
 		}
@@ -481,6 +492,10 @@ player.setJMovie("#video3","MjA4MQ==");
 			$('body,html').animate({scrollTop: position}, speed, 'swing');
 			return false;
 		});
+    
+    $('#fixed_sns button.open').on('click', function() {
+      $('#fixed_sns').toggleClass('open');
+    });
 	});
 	
 	(function() {

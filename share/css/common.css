@@ -28,7 +28,6 @@ header {
 	height: 51.1vw;
   padding: 15vw 0 0;
   margin: 0 auto;
-  margin-bottom: 2em;
   text-align: center;
   background: url(../image/mv.jpg) 0 0 / 100% auto no-repeat;
 	box-sizing: border-box;
@@ -57,6 +56,9 @@ header h1 b {
   margin: 0 auto;
   text-align: center;
 }
+.amount {
+  padding: 3.76em 0 0;
+}
 .reward-subtitle {
 	font-size: 3.49vw;
 }
@@ -66,7 +68,7 @@ header h1 b {
 	margin: 0.5em auto 0.5em;
 	background: #ab9446;
   color: #fff;
-	font-size: 3.72vw;
+	font-size: 3.96vw;
 	letter-spacing: 0.1em;
 	line-height: 1.3;
 }
@@ -96,24 +98,24 @@ header h1 b {
 	line-height: 1.4;
 }
 .btns_bg {
-	margin: 2em 0 0;
-	padding: 2em 2.4em;
+	margin: 3em 0 0;
+	padding: 3.13em 4.69em;
 }
-.btns_bg ul li:nth-child(2),
-.btns_bg ul li:nth-child(3) {
-	margin: 1em 0 0;
+.btns_bg ul li:nth-child(2) {
+	margin: 1.3em 0 0;
 }
 .btns_bg ul li:nth-child(4) {
 	margin: 3em 0 0;
 }
-.btns_bg ul li:nth-child(5) {
-	margin: 1.8em 0 0;
+.btns_bg ul li:nth-child(3) {
+	margin: 2.5em 0 0;
 }
 .link {
 	position: relative;
-	width: 62%;
-	padding: 0.7em 1.2em 0.7em 0;
+	padding: 0.8em 0.3em 0.8em 0;
 	margin: 0 auto;
+  font-size: 4.42vw;
+  font-weight: 600;
   color: #fff;
   display: block;
 	border: 1px solid #fff;
@@ -125,8 +127,8 @@ header h1 b {
 	right: 0.8em;
 	bottom: 0;
   display: block;
-  width: 5vw;
-  height: 1px;
+  width: 5.8vw;
+  height: 2px;
   margin: auto 0;
   border-radius: 9999px;
   background-color: #fff;
@@ -136,8 +138,8 @@ header h1 b {
   position: absolute;
   top: calc(50% - 1px);
   right: 0;
-  width: 2vw;
-  height: 1px;
+  width: 2.5vw;
+  height: 2px;
   border-radius: 9999px;
   background-color: #fff;
   transform: rotate(35deg);
@@ -145,22 +147,32 @@ header h1 b {
 }
 .question {
 	font-size: 3.95vw;
+  font-weight: 600;
 	color: #fff;
 }
-.question img {
+.question object {
 	position: relative;
-	top: 0.1em;
+	top: 0.2em;
 	display: inline-block;
-	width: 1.3em;
-	margin-right: 0.5em;
+	width: 1.5em;
+  height: 1.5em;
+	margin-right: 0.3em;
 }
 .button {
 	position: relative;
   width: 100%;
   padding: 0.8em;
   cursor: pointer;
-	font-size: 4.19vw;
+	font-size: 4.42vw;
+  font-weight: 600;
 	background: #fff;
+  border-radius: 0.5em;
+}
+.button span {
+  display: block;
+  margin: 0 0 0.25em;
+  font-size: 3.49vw;
+  font-weight: 400;
 }
 .button .arrow {
   position: absolute;
@@ -168,8 +180,8 @@ header h1 b {
 	right: 0.8em;
 	bottom: 0;
   display: block;
-  width: 5vw;
-  height: 1px;
+  width: 5.8vw;
+  height: 2px;
   margin: auto 0;
   border-radius: 9999px;
 }
@@ -178,8 +190,8 @@ header h1 b {
   position: absolute;
   top: calc(50% - 1px);
   right: 0;
-  width: 2vw;
-  height: 1px;
+  width: 2.5vw;
+  height: 2px;
   border-radius: 9999px;
   transform: rotate(35deg);
   transform-origin: calc(100% - 1px) 50%;
@@ -216,11 +228,14 @@ header h1 b {
 		font-size: 30px;
 	}
 	.reward-title {
-		font-size: 32px;
+		font-size: 34px;
 	}
 	.description {
 		font-size: 26px;
 	}
+  .link {
+    font-size: 38px;
+  }
 	.link:hover {
 		background: rgba(255,255,255,0.25);
 	}
@@ -241,6 +256,9 @@ header h1 b {
 		font-size: 34px;
 	}
 	.button {
-		font-size: 36px;
+		font-size: 38px;
 	}
+  .button span {
+    font-size: 30px;
+  }
 }
