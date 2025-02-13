@@ -1,0 +1,11 @@
+email,name,department,position,phone,join_date
+john.doe@example.com,John Doe,Engineering,Senior Engineer,080-1234-5678,2020-04-01
+jane.smith@example.com,Jane Smith,Marketing,Manager,080-8765-4321,2019-07-15
+mike.brown@example.com,Mike Brown,Sales,Sales Representative,080-2222-3333,2021-01-10
+sarah.wilson@example.com,Sarah Wilson,Engineering,Software Engineer,080-4444-5555,2022-03-01
+david.jones@example.com,David Jones,HR,HR Specialist,080-6666-7777,2018-11-20
+emma.davis@example.com,Emma Davis,Marketing,Content Writer,080-8888-9999,2021-09-01
+alex.taylor@example.com,Alex Taylor,Engineering,DevOps Engineer,080-1111-2222,2020-08-15
+lisa.anderson@example.com,Lisa Anderson,Sales,Sales Manager,080-3333-4444,2019-02-28
+tom.wilson@example.com,Tom Wilson,Engineering,Frontend Developer,080-5555-6666,2022-01-15
+mary.johnson@example.com,Mary Johnson,HR,Recruiter,080-7777-8888,2021-06-01
