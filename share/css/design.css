@@ -1,6 +1,23 @@
 /*.reward {
 	background: url(../image/kenchiku_l.png) 0 100% / 12.5vw auto no-repeat, url(../image/kenchiku_r.png) 100% 100% / 12.5vw auto no-repeat;
 }*/
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-weight: 600;
+  border-radius: 0.5em;
+  padding: 2px; /* ボーダーの幅 */
+  background: linear-gradient(to right, #004E31, #DBBD43);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude; /* マスクを適用して内側を透明にする */
+}
 .btns_bg {
 	background: linear-gradient(135deg, #1adf43 -5%, #086924 50%, #003917 100%);
 }
@@ -13,8 +30,11 @@
 .button .arrow::before {
   background-color: #004e31;
 }
-/*@media screen and (min-width: 861px) {
-	.reward {
+@media screen and (min-width: 861px) {
+	/*.reward {
 		background: url(../image/kenchiku_l.png) 0 100% / 107.5px auto no-repeat, url(../image/kenchiku_r.png) 100% 100% / 107.5px auto no-repeat;
-	}
-}*/
+	}*/
+  .button::before {
+    padding: 4px;
+  }
+}
