@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width">
+<title>社員紹介応募フォーム</title>
+<meta name="description" content="">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/recruit.css?v8">
+<link rel="stylesheet" href="css/entry.css?v2">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> 
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+</head>
+<body>
+<video id="bg_video" src="kv_mv_sp.mp4" autoplay muted playsinline loop></video>
+<div class="outline_wrap">
+  <div id="fixed_btn"><a href="">応募フォームへ</a></div>
+</div>
+<div class="entry_wrap">
+  <section id="form">
+    <h2 id="formTitle">入力フォーム</h2>
+    <button id="entryClose"><i class="fa-solid fa-xmark"></i></button>
+    <form id="myForm">
+      <!-- テンプレートがここに挿入されます -->
+      <div id="formContent"></div>
+
+      <div class="button-group">
+        <button type="button" id="confirm">入力内容の確認画面へ</button>
+        <button type="button" id="correct" hidden>修正する</button>
+        <button type="button" id="submit" hidden>この内容で応募する</button>
+      </div>
+    </form>
+  </section>
+</div>
+	<!--<div id="debug" style="position: fixed; top:5px; left:5px; z-index: 1000; color: #f00;"></div>-->
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+<!--JStream動画設定ここから--> 
+<script src="https://ssl-cache.stream.ne.jp/www50/eqd145gamd/jmc_pub/jmc_swf/player/t3/obj.js" charset="UTF-8"></script> 
+<script src="https://webcdn.token.co.jp/www08/token/cmn/js/jquery_jstream_movie_player.js" charset="UTF-8"></script> 
+<script>
+var player = new JMoviePlayer();
+
+player.setUseVideo(true);
+player.setVideoUrl("#video","movie/saiyo.mp4");
+player.setVideoUrl("#video2","movie/syohin.mp4");
+player.setVideoUrl("#video3","movie/kaisya.mp4");
+
+/*
+player.setJMovie("#video","MjA4Mg==");
+player.setJMovie("#video2","MjA4MQ==");
+player.setJMovie("#video3","MjA4MQ==");
+*/
+</script> 
+<!--JStream動画設定ここまで--> 
+<script>
+	$(document).ready(function() {
+		$('#summary h2').click(function() {
+			var $toggleBox = $('.toggle_box');
+			var $summary = $('#summary');
+			var $table = $toggleBox.find('table');
+
+			if ($summary.hasClass('open')) {
+				$toggleBox.css('height', '0px');
+				$summary.removeClass('open');
+			} else {
+				var autoHeight = $table.outerHeight(true);
+				$toggleBox.css('height', autoHeight + 'px');
+				$summary.addClass('open');
+			}
+		});
+		$('#flow h2').click(function() {
+			var $toggleBox = $('.toggle_box2');
+			var $flow = $('#flow');
+			var $ol = $toggleBox.find('ol');
+
+			if ($flow.hasClass('open')) {
+				$toggleBox.css('height', '0px');
+				$flow.removeClass('open');
+			} else {
+				var autoHeight = $ol.outerHeight(true);
+				$toggleBox.css('height', autoHeight + 'px');
+				$flow.addClass('open');
+			}
+		});
+		
+		$('.slider').slick({
+			centerMode: true,
+			centerPadding: '80px',
+			slidesToShow: 1,
+			infinite: false,
+			prevArrow: '<div class="slick-prev"><i class="fa-solid fa-arrow-left"></i></div>',
+			nextArrow: '<div class="slick-next"><i class="fa-solid fa-arrow-right"></i></div>',
+			responsive: [
+				{
+					breakpoint: 860,
+					settings: {
+						centerPadding: '10.233vw',
+					}
+				}
+			]
+		});
+		
+		$('#entryClose').click(function() {
+			$('body').removeClass('entry_open');
+		});
+		$('#fixed_btn a').click(function() {
+			$('body').addClass('entry_open');
+			return false;
+		});
+		
+		// ビューポートの高さを取得
+		const viewportHeight = $(window).height();
+
+		let ticking = false;
+
+		function onScroll() {
+			// 現在のスクロール位置を計算
+			const scrollTop = $(window).scrollTop();
+			const documentHeight = $(document).height();
+			const windowHeight = $(window).height();
+
+			// すべての .outline_wrap 要素を選択
+			$('.outline_wrap').each(function() {
+				// スクロール位置に基づいて不透明度を計算
+				const opacity = Math.min(1, Math.max(0, scrollTop / viewportHeight * 0.83));
+
+				// 計算された不透明度で背景色を更新
+				$(this).css('background-color', `rgba(255, 255, 255, ${opacity})`);
+			});
+			
+			// 要素にスクロール位置に基づいてクラスを付与
+			$('section .viewElem, section .viewElemVideo, section .viewElemImg').each(function() {
+				const elementTop = $(this).offset().top;
+				if (scrollTop + viewportHeight * (4 / 5) > elementTop && scrollTop < elementTop + $(this).outerHeight()) {
+					$(this).addClass('visible');
+				} else {
+					//$(this).removeClass('visible');
+				}
+			});
+			
+			let scrollBottom = (scrollTop + windowHeight) * 1.06;
+			//$('#debug').html(scrollBottom + ">" + documentHeight);
+			// スクロールが最下部に接していたらem要素を全て表示状態にする
+    	if (scrollBottom >= documentHeight) {
+        $('section .viewElem').addClass('visible');
+			}
+			
+			// #bg_videoタグのblur値をスクロールに応じて変更
+			const blurValue = Math.min(12, Math.max(0, scrollTop / viewportHeight * 12)); // blur値を0から10の範囲で計算
+    	//$('#bg_video').css('filter', `blur(${blurValue}px)`);
+			
+			ticking = false;
+		}
+
+		// ページロード時に初期状態を設定
+		onScroll();
+
+		$(window).on('scroll', function() {
+			if (!ticking) {
+				ticking = true;
+				window.requestAnimationFrame(onScroll);
+			}
+		});
+		
+		$('a[href^="#"]').click(function() {
+			var speed = 700; // スクロールの速度（ミリ秒）
+			var href = $(this).attr("href");
+			var target = $(href == "#" || href == "" ? 'html' : href);
+			var position = target.offset().top;
+			$('body,html').animate({scrollTop: position}, speed, 'swing');
+			return false;
+		});
+	});
+	
+	(function() {
+		// Check if the device is in portrait mode
+		if (window.matchMedia("(orientation: portrait)").matches) {
+			// Check if the device width is 860px or more
+			if (window.innerWidth >= 860) {
+				// Find the existing viewport meta tag
+				var viewportMeta = document.querySelector('meta[name="viewport"]');
+				if (viewportMeta) {
+					// Update the content attribute to set the width to 860px
+					viewportMeta.setAttribute('content', 'width=860');
+				}
+			}
+		}
+	})();
+</script> 
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

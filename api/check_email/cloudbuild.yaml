@@ -1,0 +1,13 @@
+steps:
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - functions
+      - deploy
+      - check_address
+      - --runtime=python312
+      - --trigger-http
+      - --region=asia-northeast1
+      - --allow-unauthenticated
+      - --memory=256MB
+      - --timeout=60s
+      - --env-vars-file=.env.yaml
