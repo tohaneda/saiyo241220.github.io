@@ -331,3 +331,70 @@ input[type="radio"], input[type="checkbox"] {
 .radio-group input[type="radio"] {
   margin-top: 0.2em; /* ラジオボタンを上部に合わせる */
 }
+
+/* 確認画面のスタイル */
+.confirmation-container {
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.confirmation-container p {
+  margin: 2rem 0;
+  font-size: 1.4rem;
+}
+
+.confirmation-fields {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.confirmation-field {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  padding: 1.5rem 0;
+}
+
+.confirmation-field:last-child {
+  border-bottom: none;
+}
+
+.confirmation-label {
+  width: 18rem;
+  padding-right: 2rem;
+  font-size: 1.4rem;
+  color: #333;
+}
+
+.confirmation-value {
+  flex: 1;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  word-break: break-all;
+}
+
+/* 値が空の場合 */
+.confirmation-value:empty::before {
+  content: "未入力";
+  color: #999;
+}
+
+/* スマートフォン対応 */
+@media screen and (max-width: 768px) {
+  .confirmation-container {
+    padding: 0 1.5rem;
+  }
+
+  .confirmation-field {
+    flex-direction: column;
+    padding: 1.2rem 0;
+  }
+
+  .confirmation-label {
+    width: 100%;
+    padding: 0 0 0.8rem;
+  }
+
+  .confirmation-value {
+    width: 100%;
+  }
+}

@@ -1,24 +1,27 @@
 import { FormConfirmationView } from './FormConfirmationView.js';
 
 export class FormManager {
-  constructor(config) {
+  constructor(config, urlParams, redirectUrl) {
     this.config = config;
+    this.urlParams = urlParams;
+    this.redirectUrl = redirectUrl;
+    this.selectors = config.selectors;
     this.form = document.getElementById(config.formId);
+    this.formContent = document.getElementById(config.formContentId);
     this.confirmButton = document.getElementById(config.confirmButtonId);
     this.correctButton = document.getElementById(config.correctButtonId);
     this.submitButton = document.getElementById(config.submitButtonId);
     this.confirmationView = new FormConfirmationView(config);
     
-    // 同意チェックボックスのイベントリスナーを設定
     this.setupConsentCheck();
-    this.initialize();
+    this.initialize(redirectUrl);
   }
 
-  initialize() {
+  initialize(redirectUrl) {
     this.confirmButton?.addEventListener('click', () => this.confirmForm());
     this.correctButton?.addEventListener('click', () => this.returnToEdit());
     if (this.form && this.submitButton) {
-      this.setupSubmission();
+      this.setupSubmission(redirectUrl);
     }
   }
 
@@ -55,13 +58,13 @@ export class FormManager {
     let isValid = true;
     let firstInvalidElement = null;
 
-    // すべてのエラーメッセージを非表示にリセット
-    document.querySelectorAll('.error-message').forEach(el => {
+    // エラーメッセージをリセット
+    document.querySelectorAll(this.selectors.errorMessage).forEach(el => {
       el.hidden = true;
     });
     
     // 入力フィールドのエラー状態をリセット
-    document.querySelectorAll('input, textarea').forEach(el => {
+    document.querySelectorAll(this.selectors.inputFields).forEach(el => {
       el.classList.remove('input-error');
     });
 
@@ -98,7 +101,7 @@ export class FormManager {
     return isValid;
   }
 
-  setupSubmission() {
+  setupSubmission(redirectUrl) {
     this.submitButton.addEventListener('click', async (e) => {
       e.preventDefault();
       console.log('Submit button clicked');
@@ -109,7 +112,7 @@ export class FormManager {
         // await this.submitForm(formData);
         
         // 直接success.htmlへリダイレクト
-        window.location.href = 'success.html';
+        window.location.href = redirectUrl;
       } catch (error) {
         console.error('送信エラー:', error);
         alert('送信に失敗しました。もう一度お試しください。');
@@ -142,15 +145,15 @@ export class FormManager {
   }
 
   setupConsentCheck() {
-    const consentCheckbox = document.querySelector('input[name="consent"]');
-    const confirmButton = this.confirmButton;
+    const consentCheckbox = document.querySelector(this.selectors.consentCheckbox);
+    if (!consentCheckbox) return;
 
     // 初期状態で確認ボタンを無効化
-    confirmButton.disabled = !consentCheckbox.checked;
+    this.confirmButton.disabled = !consentCheckbox.checked;
 
     // チェックボックスの状態変更時に確認ボタンの有効/無効を切り替え
-    consentCheckbox.addEventListener('change', function() {
-      confirmButton.disabled = !this.checked;
+    consentCheckbox.addEventListener('change', () => {
+      this.confirmButton.disabled = !consentCheckbox.checked;
     });
   }
 }

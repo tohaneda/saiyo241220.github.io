@@ -10,15 +10,25 @@ const formConfig = {
   correctButtonId: 'correct',
   submitButtonId: 'submit',
   titleElementId: 'formTitle',
+  formContentId: 'formContent',
   editTitle: '応募フォーム',
   confirmationTitle: '応募内容の確認',
-  successUrl: 'success.html',
   apiEndpoint: '/api/entries',
+  
+  // セレクター設定
+  selectors: {
+    errorMessage: '.error-message',
+    inputError: '.input-error',
+    consentCheckbox: 'input[name="consent"]',
+    checkboxGroup: '.checkbox-group',
+    inputFields: 'input, textarea'
+  },
 
   fields: {
     company: {
       required: false,
       label: '会社名',
+      selector: 'input[name="company"]',
       getValue: () => document.querySelector('input[name="company"]').value
     },
     name: {
@@ -90,18 +100,42 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    // テンプレートを読み込む
+    // URLパラメータを取得
+    const urlParams = UrlParamsManager.getParams();
+    
+    // 全てのテンプレートを読み込む
     const templates = await FormTemplateLoader.loadTemplates();
     
     // フォームコンテンツ領域にテンプレートを挿入
     const formContent = document.getElementById('formContent');
     formContent.innerHTML = templates.inputTemplate + templates.confirmationTemplate;
-
-    // URLパラメータが必要な場合はここで取得
-    const urlParams = UrlParamsManager.getParams();
     
+    // 成功時テンプレートはグローバルに保持
+    window.successTemplate = templates.successTemplate;
+
+    // appTypeが1の場合は承認チェックを非表示に
+    if (urlParams.appType === '1') {
+      // チェックボックスグループ全体を非表示
+      const consentGroup = document.querySelector('.checkbox-group');
+      if (consentGroup) {
+        consentGroup.remove();
+      }
+      
+      // formConfigから承認チェックの必須設定を削除
+      if (formConfig.fields.consent) {
+        delete formConfig.fields.consent;
+      }
+      
+      // 確認ボタンを常に有効化
+      const confirmButton = document.getElementById(formConfig.confirmButtonId);
+      if (confirmButton) {
+        confirmButton.disabled = false;
+      }
+    }
+
     // FormManagerの初期化
-    const formManager = new FormManager(formConfig, urlParams);
+    const redirectUrl = urlParams.appType === '1' ? 'success2.html' : 'success1.html';
+    const formManager = new FormManager(formConfig, urlParams, redirectUrl);
   } catch (error) {
     console.error('フォームの初期化に失敗しました:', error);
   }
