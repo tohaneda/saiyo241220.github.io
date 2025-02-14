@@ -1,0 +1,333 @@
+@charset "utf-8";
+
+.f-red {
+	color: #e00 !important;
+}
+.f-bold {
+	font-weight: 600;
+}
+
+input[type="radio"], input[type="checkbox"] {
+	width: 1.5em;
+	height: 1.5em;
+}
+
+.entry_wrap {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1000;
+	background: #fff;
+	transform: translate(0, 100%);
+	transition: transform 0.4s ease;
+}
+.entry_open .entry_wrap {
+	transform: translate(0, 0%);
+}
+.entry_wrap #entryClose {
+	position: absolute;
+	top: 0.25em;
+	left: 0.25em;
+	padding: 0.389em;
+	font-size: 116.7%;
+	line-height: 1;
+	border: none;
+	background: none;
+	color: #000;
+}
+.entry_wrap #entryClose i {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+}
+.entry_wrap #form {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+  background: #fff;
+}
+
+.entry_wrap h2 {
+  margin: 0;
+  padding: 0.778em 0;
+	font-size: 100%;
+	line-height: 1.2;
+	text-align: center;
+	border-bottom: 1px solid #ddd;
+}
+
+.entry_wrap #myForm {
+	padding-bottom: 8em;
+	flex-grow: 1;
+	overflow-y: scroll;
+	font-size: 94.5%;
+}
+.entry_wrap p {
+  margin: 0;
+	color: #333;
+}
+.entry_wrap p.lead {
+  margin: 1em;
+  font-size: 94.5%;
+  line-height: 1.5;
+}
+
+.entry_wrap p.mt1 {
+	margin-top: 1em;
+}
+.entry_wrap .table_wrap {
+	padding: 1em;
+}
+
+.entry_wrap .info-section {
+  margin: 20px 0;
+  padding: 15px;
+  /* background: #f8f8f8; */
+  border-radius: 0.223em;
+}
+
+.entry_wrap .info-section h3 {
+  margin: 0 0 10px 0;
+	font-size: 120%;
+  color: #666;
+}
+
+.entry_wrap .employee-info {
+	padding: 2em 1em;
+}
+.entry_wrap .employee-info p {
+  font-size: 0.9rem;
+}
+.entry_wrap .employee-info span {
+	color: #666;
+}
+
+.entry_wrap table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 1em;
+}
+
+.entry_wrap th {
+  width: 35%;
+  text-align: left;
+  font-weight: normal;
+  padding-right: 1em;
+  vertical-align: middle;
+	color: #666;
+}
+
+.entry_wrap .required-mark {
+  color: #f44;
+  font-size: 80%;
+  margin-left: 0.8em;
+}
+
+.entry_wrap td input[type="text"],
+.entry_wrap td input[type="number"],
+.entry_wrap td input[type="email"],
+.entry_wrap td input[type="tel"],
+.entry_wrap textarea {
+  width: 100%;
+  padding: 0.667em;
+  border: 1px solid #ddd;
+  border-radius: 0.223em;
+	line-height: 1.2;
+	box-sizing: border-box;
+}
+.entry_wrap td#location_input {
+	display: flex;
+	justify-content: flex-end;
+	flex-wrap: wrap;
+}
+.entry_wrap td select {
+	width: 88%;
+  padding: 0.667em;
+  border-radius: 0.223em;
+	background: #f8f8f8;
+	border: none;
+	color: #a6a6a6;
+	line-height: 1.2;
+	box-sizing: border-box;
+}
+.entry_wrap td select#location_body {
+	margin: 0 0 0.5em;
+}
+
+.entry_wrap .radioOther {
+  display: flex;
+	justify-content: space-between;
+}
+
+.entry_wrap .radioOther label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.entry_wrap .suffix {
+  margin-left: 0.389em;
+}
+
+.entry_wrap .caution {
+  color: #f44;
+  font-size: 80%;
+  margin: 5px 0 0 0;
+}
+
+.entry_wrap .send_area {
+	/*position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;*/
+	padding: 0 1em 1.5em;
+  text-align: center;
+	/*border-top: 1px solid #fff;
+	background: rgba(255,255,255,1);
+	box-shadow: 0 0 0.667em rgba(0,0,0,0.4);*/
+}
+
+.entry_wrap form button {
+	width: 100%;
+  padding: 0.667em 0;
+  border: none;
+  border-radius: 0.667em;
+  background: #000;
+  color: #fff;
+  font-size: 133%;
+	font-weight: 600;
+  cursor: pointer;
+	box-shadow: 0 0.056em 0.334em rgba(0,0,0,0.4);
+}
+
+.entry_wrap button:hover {
+  background: #0052a3;
+}
+
+.entry_wrap button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.entry_wrap button:disabled:hover {
+  opacity: 1;
+}
+
+.entry_wrap .button {
+	display: flex;
+	justify-content: space-between;
+}
+.entry_wrap form button#confirm {
+	padding-left: 0.15em;
+	letter-spacing: 0.3em;
+}
+.entry_wrap form button#correct {
+	width: 48%;
+  background: #666;
+  font-size: 112%;
+}
+.entry_wrap form button#submit {
+	width: 48%;
+  font-size: 112%;
+}
+
+.entry_wrap #correct:hover {
+  background: #555;
+}
+
+.entry_wrap .input-with-suffix {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 5px;
+}
+
+.entry_wrap .input-with-suffix input {
+    flex: 1;
+}
+
+.entry_wrap #age_input .input-with-suffix input {
+    width: 80px !important;
+    flex: none;
+}
+
+.entry_wrap .suffix {
+    white-space: nowrap;
+    color: #333;
+}
+
+.entry_wrap .privacy-policy {
+    line-height: 1.6;
+    color: #666;
+}
+
+.entry_wrap .policy-link {
+    display: block;
+    margin-top: 10px;
+	font-size: 80%;
+}
+
+.entry_wrap .policy-link a {
+    color: #2e93be;
+    text-decoration: none;
+}
+
+.entry_wrap .policy-link a:hover {
+    text-decoration: underline;
+}
+
+
+.entry_wrap .form-title,
+.entry_wrap .info-title {
+	padding: 0.6em 1em;
+	font-size: 120%;
+	color: #fff;
+  background: linear-gradient(to right,  #1a1a1f 0%,#3d3d66 100%);
+
+} 
+
+.entry_wrap .employee-info-row {
+  display: flex;
+  gap: 10px;
+}
+
+.entry_wrap .employee-info-text {
+  text-align: right;
+  flex: 1;
+}
+
+.entry_wrap #name,
+.entry_wrap #age,
+.entry_wrap #gender,
+.entry_wrap #email,
+.entry_wrap #phone,
+.entry_wrap #location {
+	padding: 0.75em 0;
+	text-align: right;
+}
+@media screen and (min-width: 861px) {
+	.entry_wrap {
+		width: 860px;
+		margin: 0 auto;
+	}
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin: 1em 0;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5em;
+  line-height: 1.4;
+}
+
+.radio-group input[type="radio"] {
+  margin-top: 0.2em; /* ラジオボタンを上部に合わせる */
+}
