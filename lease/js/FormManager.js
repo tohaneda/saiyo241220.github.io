@@ -1,7 +1,7 @@
 import { FormConfirmationView } from './FormConfirmationView.js';
 
 export class FormManager {
-  constructor(config, urlParams, redirectUrl) {
+  constructor(config, urlParams, redirectUrl, callbacks = {}) {
     // コンストラクター
     this.config = config;
     this.urlParams = urlParams;
@@ -13,6 +13,16 @@ export class FormManager {
     this.correctButton = document.getElementById(config.correctButtonId);
     this.submitButton = document.getElementById(config.submitButtonId);
     this.confirmationView = new FormConfirmationView(config);
+    
+    this.callbacks = {
+      onSubmitSuccess: callbacks.onSubmitSuccess || ((response) => {
+        window.location.href = this.redirectUrl;
+      }),
+      onSubmitError: callbacks.onSubmitError || ((error) => {
+        alert('送信に失敗しました。');
+      }),
+      onBeforeSubmit: callbacks.onBeforeSubmit || ((data) => data)
+    };
     
     this.setupConsentCheck();
     this.initialize(redirectUrl);
@@ -50,13 +60,22 @@ export class FormManager {
   }
 
   getFormData() {
-    // フォームのデータ取得
     const formData = {};
-    for (const [fieldId, config] of Object.entries(this.config.fields)) {
-      if (config.getValue) {
-        formData[fieldId] = config.getValue();
+    const form = document.getElementById(this.config.formId);
+    const formElements = form.elements;
+    
+    for (let element of formElements) {
+      if (element.name) {
+        if (element.type === 'radio' && element.checked) {
+          formData[element.name] = element.value;
+        } else if (element.type === 'checkbox') {
+          formData[element.name] = element.checked;
+        } else if (element.type !== 'radio') {
+          formData[element.name] = element.value;
+        }
       }
     }
+    
     return formData;
   }
 
@@ -115,41 +134,46 @@ export class FormManager {
       console.log('Submit button clicked');
       
       try {
-        // TODO:一時的にAPI送信をスキップ
-        // const formData = this.getFormData();
-        // const response = await this.submitForm(formData);
-        // console.log(response);
-        // const success = response.success;
-
-        const success = true; // 一時的に成功とする
-        // 直接success.htmlへリダイレクト
-        if (success) {
-          window.location.href = redirectUrl;
-        } else {
-          alert('送信に失敗しました。もう一度お試しください。');
-        }
+        const formData = this.getFormData();
+        console.log('送信データ:', formData); // デバッグ用
+        const response = await this.handleSubmit(formData);
+        console.log(response);
       } catch (error) {
-        console.error('送信エラー:', error);
-        alert('送信に失敗しました。もう一度お試しください。');
+        console.error('詳細なエラー情報:', error); // デバッグ用
+        this.callbacks.onSubmitError(error);
       }
     });
   }
 
-  async submitForm(formData) {
-    // フォームの送信
-    const response = await fetch(this.config.apiEndpoint, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData)
-    });
+  async handleSubmit(formData) {
+    try {
+      console.log('送信データ:', formData); // デバッグ用
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      const apiData = this.callbacks.onBeforeSubmit(formData);
+
+      const response = await fetch(`${this.config.apiEndpoint}/submit`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(apiData)
+      });
+
+      const result = await response.json();
+      console.log('APIレスポンス:', result); // デバッグ用
+      
+      if (response.ok) { // status code 200-299
+        this.callbacks.onSubmitSuccess(result);
+      } else {
+        // エラーメッセージをより詳細に
+        const errorMessage = result.message || `APIエラー: ${response.status} ${response.statusText}`;
+        this.callbacks.onSubmitError(new Error(errorMessage));
+      }
+    } catch (error) {
+      console.error('詳細なエラー情報:', error); // デバッグ用
+      this.callbacks.onSubmitError(error);
     }
-
-    return await response.json();
   }
 
   scrollToElement(element) {

@@ -1,0 +1,8 @@
+functions-framework==3.*
+pandas
+google-cloud-storage
+python-dotenv
+google-api-python-client==2.*
+google-auth-httplib2==0.*
+google-auth-oauthlib==1.*
+google-auth==2.*
