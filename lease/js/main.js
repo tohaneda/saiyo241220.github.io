@@ -12,7 +12,7 @@ const formConfig = {
   formContentId: 'formContent',
   editTitle: '応募フォーム',
   confirmationTitle: '応募内容の確認',
-  apiEndpoint: '/api/entries',
+  apiEndpoint: 'http://localhost:8080',
   
   // セレクター設定
   selectors: {
@@ -93,35 +93,61 @@ const formConfig = {
 };
 
 document.addEventListener('DOMContentLoaded', async () => {
-  try {
-    // URLパラメータを取得
-    const urlParams = UrlParamsManager.getParams();    
+  // URLパラメータを取得
+  const urlParams = UrlParamsManager.getParams();    
 
-    // appTypeが1の場合は承認チェックを非表示に
-    if (urlParams.appType === '1') {
-      // チェックボックスグループ全体を非表示
-      const consentGroup = document.querySelector('.checkbox-group');
-      if (consentGroup) {
-        consentGroup.remove();
-      }
-      
-      // formConfigから承認チェックの必須設定を削除
-      if (formConfig.fields.consent) {
-        delete formConfig.fields.consent;
-      }
-      
-      // 確認ボタンを常に有効化
-      const confirmButton = document.getElementById(formConfig.confirmButtonId);
-      if (confirmButton) {
-        confirmButton.disabled = false;
-      }
+  // appTypeが1の場合は承認チェックを非表示に
+  if (urlParams.appType === '1') {
+    // チェックボックスグループ全体を非表示
+    const consentGroup = document.querySelector('.checkbox-group');
+    if (consentGroup) {
+      consentGroup.remove();
     }
-
-    // FormManagerの初期化
-    const redirectUrl = urlParams.appType === '1' ? 'success2.html' : 'success1.html';
-    const formManager = new FormManager(formConfig, urlParams, redirectUrl);
-  } catch (error) {
-    console.error('フォームの初期化に失敗しました:', error);
+    
+    // formConfigから承認チェックの必須設定を削除
+    if (formConfig.fields.consent) {
+      delete formConfig.fields.consent;
+    }
+    
+    // 確認ボタンを常に有効化
+    const confirmButton = document.getElementById(formConfig.confirmButtonId);
+    if (confirmButton) {
+      confirmButton.disabled = false;
+    }
   }
+
+  // FormManagerの初期化
+  const redirectUrl = urlParams.appType === '1' ? 'success2.html' : 'success1.html';
+  const formManager = new FormManager(formConfig, urlParams, redirectUrl, {
+    onSubmitSuccess: (response) => {
+      console.log('送信成功:', response);
+      alert('送信が完了しました。ありがとうございました。');
+      window.location.href = redirectUrl;
+    },
+    
+    onSubmitError: (error) => {
+      console.error('送信エラー:', error);
+      alert('送信に失敗しました。もう一度お試しください。');
+    },
+
+    // フォームデータを送信前に整形するコールバック
+    onBeforeSubmit: (formData) => {
+      // APIに送信するデータを整形
+      const apiData = {
+        company: formData.company || '',
+        name: formData.name || '',
+        email: formData.email || '',
+        phone: formData.phone || '',
+        address: formData.address || '',
+        notes: formData.notes || '',
+        situation: formData.situation || '',
+        interest: formData.interest || '',
+        consent: Boolean(formData.consent)
+      };
+
+      console.log('送信データ:', apiData);
+      return apiData;
+    }
+  });
 });
 
