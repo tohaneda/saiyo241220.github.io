@@ -1,0 +1,94 @@
+@charset "utf-8";
+
+body {
+  font-family: 'Hiragino Kaku Gothic Pro', 'Noto Sans JP', Meiryo, 'MS Gothic', sans-serif;
+	font-size: 4.187vw;
+}
+
+ul,ol {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+h1,h2,h3,h4,h5,h6,li,dl,dt,dd,figure {
+	margin: 0;
+	padding: 0;
+}
+img {
+	max-width: 100%;
+	vertical-align: bottom;
+}
+a {
+	text-decoration: none;
+}
+
+.wrap {
+	padding: 0 0 4em;
+}
+h1 {
+  margin: 0;
+  padding: 0.778em 0;
+	margin-bottom: 0.778em;
+	font-size: 100%;
+	line-height: 1.2;
+	text-align: center;
+	border-bottom: 1px solid #ddd;
+}
+
+.check {
+	padding: 4em 0;
+	text-align: center;
+}
+.check i {
+	font-size: 500%;
+	color: #34a2c6;
+}
+dl {
+	
+}
+dl dt {
+	font-size: 166.7%;
+	font-weight: 600;
+	text-align: center;
+}
+dl dd {
+	padding: 1em 2.4em;
+	color: #666;
+	line-height: 1.4;
+}
+.img-success {
+	display: block;
+	margin-top: 1.5em;
+}
+.back_top {
+	margin: 2em 1em 0;
+}
+button {
+	width: 100%;
+  padding: 0.667em 0;
+  border: none;
+  border-radius: 0.667em;
+  background: #2e93be;
+  color: #fff;
+  font-size: 120%;
+	font-weight: 600;
+  cursor: pointer;
+	box-shadow: 0 0.056em 0.334em rgba(0,0,0,0.4);
+}
+@media screen and (min-width: 861px) {
+	body {
+		background: #eee;
+		font-size: 36px;
+	}
+	.wrap {
+		width: 860px;
+		margin: 0 auto;
+		background: #fff;
+	}
+	.check {
+		padding: 2em 0;
+	}
+	.img-success {
+		margin-top: 0.5em;
+	}
+}
